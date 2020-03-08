@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">六十四卦查询</string>
+    <string name="developer_information">开发信息：\n 开发团队：慧眼 \n 成员：\n 1.叶新宇 \n 2.钱嘉俊 \n 3.董梦媛</string>
+    <string name="error">出现错误，请检查输入是否正确或联系开发者。</string>
+    <string name="search">检索</string>
+    <string name="up_gua">上卦</string>
+    <string name="dn_gua">下卦</string>
+    <string name="todo">search</string>
+    <string name="gua_drawable">知卦象不知其意</string>
+    <string name="gua_mean">知卦名不知其象</string>
+    <string name="please_click">请点击开关上部的下拉框选择卦名</string>
+    <string name="click">已点击<tools id="string">%1s</tools>栏</string>
+    <string name="music">音乐</string>
+    <string name="sounds">音效</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="company">慧眼工作室</string>
+    <string name="first_use_title">第一次使用</string>
+    <string name="first_wse_message">您是否需要了解《周易》的历史、作用、解读及如何使用本软件？</string>
+    <string name="use_type_face">使用内置字体</string>
+    <string name="BackPressend">再按一次退出程序</string>
+
+</resources>

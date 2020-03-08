@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gua_min">
+        <item>Qian</item>
+        <item>Dui</item>
+        <item>Li</item>
+        <item>Zhen</item>
+        <item>Xun</item>
+        <item>Kan</item>
+        <item>Gen</item>
+        <item>Kun</item>
+    </string-array>
+
+    <string-array name="gua_max">
+        <item>Qian</item>
+        <item>Lv</item>
+        <item>TongRen</item>
+        <item>WuWang</item>
+        <item>Gou</item>
+        <item>Song</item>
+        <item>Dun</item>
+        <item>Fou</item>
+
+        <item>夬</item>
+        <item>兑</item>
+        <item>革</item>
+        <item>随</item>
+        <item>大过</item>
+        <item>困</item>
+        <item>咸</item>
+        <item>萃</item>
+
+        <item>大有</item>
+        <item>睽</item>
+        <item>离</item>
+        <item>噬嗑</item>
+        <item>鼎</item>
+        <item>未济</item>
+        <item>履</item>
+        <item>晋</item>
+
+        <item>大壮</item>
+        <item>归妹</item>
+        <item>丰</item>
+        <item>震</item>
+        <item>恒</item>
+        <item>解</item>
+        <item>小过</item>
+        <item>豫</item>
+
+        <item>小畜</item>
+        <item>中孚</item>
+        <item>家人</item>
+        <item>益</item>
+        <item>巽</item>
+        <item>涣</item>
+        <item>渐</item>
+        <item>观</item>
+
+        <item>需</item>
+        <item>节</item>
+        <item>既济</item>
+        <item>屯</item>
+        <item>井</item>
+        <item>坎</item>
+        <item>蹇</item>
+        <item>比</item>
+
+        <item>大畜</item>
+        <item>损</item>
+        <item>贲</item>
+        <item>颐</item>
+        <item>蛊</item>
+        <item>蒙</item>
+        <item>艮</item>
+        <item>剥</item>
+
+        <item>泰</item>
+        <item>临</item>
+        <item>明夷</item>
+        <item>复</item>
+        <item>升</item>
+        <item>师</item>
+        <item>谦</item>
+        <item>坤</item>
+    </string-array>
+
+    <string-array name="table_menu">
+        <item>about</item>
+        <item>help</item>
+        <item>settings</item>
+        <item>note</item>
+    </string-array>
+</resources>
