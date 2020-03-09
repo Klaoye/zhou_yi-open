@@ -91,4 +91,11 @@
         <item>settings</item>
         <item>note</item>
     </string-array>
+
+    <string-array name="help_array">
+        <item>如何浅读《周易》</item>
+        <item>如何使用本产品</item>
+        <item>《周易》介绍</item>
+        <item>易学简单应用（梅花易数）</item>
+    </string-array>
 </resources>

@@ -897,6 +897,7 @@ public class TableActivity extends AppCompatActivity {
                 Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                 break;
 
+
         }
         Toast.makeText(TableActivity.this,
                 String.format(getResources().getString(R.string.click), menu_id[item.getItemId()]),
