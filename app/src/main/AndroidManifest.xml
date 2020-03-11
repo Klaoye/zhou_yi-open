@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".HelpActivity"></activity>
+        <activity android:name=".HelpActivity" />
         <activity android:name=".NoteActivity" />
         <activity android:name=".SettingsActivity" />
 

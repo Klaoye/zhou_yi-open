@@ -230,15 +230,16 @@ public class TableActivity extends AppCompatActivity {
 
             }
         });
-
         SearchTextView = findViewById(R.id.textView_search);//文本框
         SearchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
+
 
         BtnSearch = findViewById(R.id.btn_search);
         BtnSearch.setText(R.string.search);
         BtnSearch.setTextSize(33);//字号
         BtnSearch.setTypeface(typefaceKAI);//字体
         BtnSearch.getPaint().setFakeBoldText(true);//绘制字体
+        modelSwitch.setTextSize(15);
 
         modelSwitch.setTextSize(15);
 
@@ -821,6 +822,7 @@ public class TableActivity extends AppCompatActivity {
                 SearchTextView.setTypeface(typefaceKAI);
                 SearchTextView.getPaint().setFakeBoldText(true);
 
+                SearchTextView.scrollTo(0, 0);
                 SearchTextView.postInvalidate();//刷新视图
 
                 if (play_sounds) {
@@ -918,8 +920,8 @@ public class TableActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        stopService(MusicService);
-        System.out.println("table暂停工作，音乐服务停止");
+        // stopService(MusicService);
+        // System.out.println("table暂停工作，音乐服务停止");
     }
 
     @Override
@@ -934,6 +936,12 @@ public class TableActivity extends AppCompatActivity {
             stopService(MusicService);
         }
         System.out.println("table重新读值成功");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopService(MusicService);
     }
 
     @Override

@@ -3,9 +3,6 @@
     <string name="developer_information">开发信息：\n 开发团队：慧眼 \n 成员：\n 1.叶新宇 \n 2.钱嘉俊 \n 3.董梦媛</string>
     <string name="error">An error occurred. Please check the input or contact the developer.</string>
     <string name="search">Search</string>
-    <string name="up_gua">up divinatory symbols</string>
-    <string name="dn_gua">down divinatory symbols</string>
-    <string name="todo">search</string>
     <string name="gua_drawable">Knowing the image of divination, not knowing its meaning.</string>
     <string name="gua_mean">Knowing the divination\'s mean,not knowing its image. </string>
     <string name="please_click">Please click the spinner at the top of the switch to select the divination name.</string>
