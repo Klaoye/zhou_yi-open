@@ -1,5 +1,7 @@
 package com.example.YI;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -7,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
@@ -14,12 +17,31 @@ import java.util.Objects;
 public class HelpActivity extends AppCompatActivity {
 
     ListView HelpList;
+    AlertDialog alertDialog;
+    View gifView;
+    String[] string;
+
+    @SuppressLint("InflateParams")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
+        string = getResources().getStringArray(R.array.help_array);
+        gifView = getLayoutInflater().inflate(R.layout.gif_view, null);
         HelpList = findViewById(R.id.help_list);
+
+        alertDialog = new AlertDialog.Builder(this)
+                .setTitle(string[1])
+                .setIcon(R.mipmap.ic_launcher)
+                .setView(gifView)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .create();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(getDrawable(R.drawable.wood240));
@@ -33,7 +55,7 @@ public class HelpActivity extends AppCompatActivity {
         HelpList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                alertDialog.show();
             }
         });
 
