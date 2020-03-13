@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">六十四卦查询</string>
-    <string name="developer_information">开发信息：\n 开发团队：慧眼 \n 成员：\n 1.叶新宇 \n 2.钱嘉俊 \n 3.董梦媛</string>
+    <string name="developer_information">开发信息：\n 开发团队：慧眼团队 \n 成员：\n 1.叶新宇 \n 2.钱嘉俊 \n 3.董梦媛</string>
     <string name="error">出现错误，请检查输入是否正确或联系开发者。</string>
     <string name="search">检索</string>
     <string name="gua_drawable">知卦象不知其意</string>
@@ -16,6 +16,16 @@
     <string name="first_wse_message">您是否需要了解《周易》的历史、作用、解读及如何使用本软件？</string>
     <string name="use_type_face">使用内置字体</string>
     <string name="BackPressend">再按一次退出程序</string>
-    <string name="hou_to_read"></string>
+    <string name="hou_to_read">《周易》即《易经》是中国传统经典之一。《周易》有六十四个卦象，每个卦象由六个爻（yáo）\n
+                               （“——”阳实线和“&#8212;&#8212;”阴虚线，称之为“爻”）\n
+                                组成。卦象中每个爻都有含义，称之为“爻辞”，“卦辞”是对整个卦象的一个总结和评论。\n
+                                实线爻为“阳爻”，虚线爻为“阴爻”，三爻相重组成八卦，两组八卦相重形成六十四卦，所以六十四卦可分为上下两个八卦卦象。\n
+                                在易学中八卦是基础，八卦可以表示成方向、时间（时辰，节气）、五行等等，所以易学基本算法都是从八卦开始。\n
+                               《易经》应用范围广：天体运动规律、时节时令推测、军事战略、中医药学、吉时测定、寻找宜居地段或失物、趋利避祸、哲学思想、人际关系梳理等等。\n
+                                我们的产品通过将六十四卦拆解为八卦，让初学者初步了解《周易》运行机制，深度研究者使用更顺畅。\n
+                                如果你有什么问题或建议，欢迎您的随时反馈。希望我们的产品能对你的《易经》学习有所帮助。</string>
+
+    <string name="building">建设中……</string>
+
 
 </resources>

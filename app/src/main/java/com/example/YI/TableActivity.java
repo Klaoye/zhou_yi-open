@@ -35,38 +35,23 @@ import java.util.Objects;
 
 public class TableActivity extends AppCompatActivity {
     Button BtnSearch;//检索键
-    Spinner spinner_gua_min_up;//下拉框上卦
-    Spinner spinner_gua_min_dn;//下拉框下卦
-    Spinner spinner_gua_max;//下拉框六十四卦
-    SimpleAdapter adapter_gua_min;//八卦适配器
-    SimpleAdapter adapter_gua_max;//六十四卦适配器
+    Spinner spinner_gua_min_up, spinner_gua_min_dn, spinner_gua_max;//下拉框上卦，下拉框下卦，下拉框六十四卦
+    SimpleAdapter adapter_gua_min, adapter_gua_max;//八卦适配器，六十四卦适配器
     SharedPreferences settings;//共享存储库
     SharedPreferences.Editor editor;//共享存储库编辑器
     SoundPool soundPool_table;//音频池
     SoundPool.Builder builder_soundPool_table;//音频池构建器
     AudioAttributes.Builder attr_builder;//音频流构建器
-    private int up_gua_min_id;//上卦
-    private int dn_gua_min_id;//下卦
-    private int gua_max_id;//六十四卦
-    private boolean model;//模式
+    Intent MusicService, SettingsActivity, NoteActivity, HelpActivity;//音乐服务,跳转设置界面，跳转笔记界面，跳转帮助界面
     private TextView SearchTextView;//文字界面
     private Typeface typefaceKAI;//字体
     private Switch modelSwitch;//模式开关
     String[] menu_id;//菜单列表
     HashMap<Integer, Integer> voiceID = new HashMap<Integer, Integer>();//音频池列表
-    Intent MusicService;//音乐服务
-    Intent SettingsActivity;//跳转至设置界面
-    Intent NoteActivity;
-    Intent HelpActivity;
-    boolean play_music;//是否播放音乐
-    boolean music_setting;//音乐是否有初始设置
-    boolean play_sounds;//是否播放音效
-    boolean sounds_setting;//音效是否有初始设置
-    boolean first_use;
-    AlertDialog about_alertDialog;
-    AlertDialog first_use_alertDialog;
+    boolean play_music, music_setting, play_sounds, sounds_setting, first_use, model;//是否播放音乐，音乐是否有初始设置，是否播放音效，音效是否有初始设置,第一次使用,模式
+    AlertDialog about_alertDialog, first_use_alertDialog;//关于，第一次使用
+    private int up_gua_min_id, dn_gua_min_id, gua_max_id;//上卦，下卦，六十四卦
     private long exitTime = 0;
-
 
     @SuppressLint("ResourceType")
     @Override
@@ -311,6 +296,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table 下卦 " + up_gua_min_id + " 组 未找到选项 ->" + dn_gua_min_id);
                                     break;
                             }
                             break;
@@ -343,6 +329,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m1 下卦 " + up_gua_min_id + " 组 未找到选项 ->" + dn_gua_min_id);
                                     break;
                             }
                             break;
@@ -375,6 +362,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m1 下卦 " + up_gua_min_id + " 组 未找到选项 ->" + dn_gua_min_id);
                                     break;
                             }
                             break;
@@ -407,6 +395,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m1 下卦 " + up_gua_min_id + " 组 未找到选项 ->" + dn_gua_min_id);
                                     break;
                             }
                             break;
@@ -439,6 +428,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m1 下卦 " + up_gua_min_id + " 组 未找到选项 ->" + dn_gua_min_id);
                                     break;
                             }
                             break;
@@ -471,6 +461,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m1 下卦 " + up_gua_min_id + " 组 未找到选项 ->" + dn_gua_min_id);
                                     break;
                             }
                             break;
@@ -503,6 +494,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m1 下卦 " + up_gua_min_id + " 组 未找到选项 ->" + dn_gua_min_id);
                                     break;
                             }
                             break;
@@ -535,6 +527,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m1 下卦 " + up_gua_min_id + " 组 未找到选项 ->" + dn_gua_min_id);
                                     break;
                             }
                             break;
@@ -543,6 +536,7 @@ public class TableActivity extends AppCompatActivity {
                         default:
                             Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                             SearchTextView.setText("");
+                            System.out.println("error Table m1 上卦 未找到选项 ->" + dn_gua_min_id);
                             break;
 
                     }
@@ -582,6 +576,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m2 下卦 " + position_up + " 组 未找到选项 ->" + position_dn);
                                     break;
                             }
                             break;
@@ -614,6 +609,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m2 下卦 " + position_up + " 组 未找到选项 ->" + position_dn);
                                     break;
                             }
                             break;
@@ -646,6 +642,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m2 下卦 " + position_up + " 组 未找到选项 ->" + position_dn);
                                     break;
                             }
                             break;
@@ -678,6 +675,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m2 下卦 " + position_up + " 组 未找到选项 ->" + position_dn);
                                     break;
                             }
                             break;
@@ -710,6 +708,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m2 下卦 " + position_up + " 组 未找到选项 ->" + position_dn);
                                     break;
                             }
                             break;
@@ -742,6 +741,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m2 下卦 " + position_up + " 组 未找到选项 ->" + position_dn);
                                     break;
                             }
                             break;
@@ -774,6 +774,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m2 下卦 " + position_up + " 组 未找到选项 ->" + position_dn);
                                     break;
                             }
                             break;
@@ -806,6 +807,7 @@ public class TableActivity extends AppCompatActivity {
                                 default:
                                     Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                                     SearchTextView.setText("");
+                                    System.out.println("error Table m2 下卦 " + position_up + " 组 未找到选项 ->" + position_dn);
                                     break;
                             }
                             break;
@@ -814,6 +816,7 @@ public class TableActivity extends AppCompatActivity {
                         default:
                             Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                             SearchTextView.setText("");
+                            System.out.println("error Table m2 上卦 未找到选项 ->" + position_up);
                             break;
 
                     }
@@ -893,10 +896,12 @@ public class TableActivity extends AppCompatActivity {
                 startActivity(SettingsActivity);
                 break;
             case 3:
-                startActivity(NoteActivity);
+                Toast.makeText(TableActivity.this, R.string.building, Toast.LENGTH_SHORT).show();
+                //startActivity(NoteActivity);
                 break;
             default:
                 Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
+                System.out.println("error Table溢出菜单栏 未找到选项");
                 break;
 
 
@@ -936,12 +941,6 @@ public class TableActivity extends AppCompatActivity {
             stopService(MusicService);
         }
         System.out.println("table重新读值成功");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        stopService(MusicService);
     }
 
     @Override

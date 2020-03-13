@@ -19,4 +19,5 @@
     <string name="use_type_face">Use built-in fonts</string>
     <string name="BackPressend">Press again to exit the program</string>
     <string name="hou_to_read"></string>
+    <string name="building">building……</string>
 </resources>

@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +20,8 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class HelpActivity extends AppCompatActivity {
 
-    ListView HelpList;
-    AlertDialog HelpAlertDialog;
+    ListView HelpList;//帮助界面列表
+    AlertDialog HelpAlertDialog, ReadZhouYiAlertDialog;
     String[] string;
     View gifView;
     GifImageView HGIV;
@@ -52,7 +53,6 @@ public class HelpActivity extends AppCompatActivity {
                 })
                 .create();
 
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(getDrawable(R.drawable.wood240));
         }//修改活动栏样式
@@ -67,6 +67,8 @@ public class HelpActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
+                        ReadZhouYiAlertDialog = funAlertDialog(string[position], getString(R.string.hou_to_read));
+                        ReadZhouYiAlertDialog.show();
                         break;
                     case 1:
                         HelpAlertDialog.show();
@@ -74,8 +76,11 @@ public class HelpActivity extends AppCompatActivity {
                         HGD.reset();
                         break;
                     case 2:
-                        break;
+
                     case 3:
+                        Toast.makeText(HelpActivity.this, R.string.building, Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
                         break;
                 }
             }
@@ -96,6 +101,23 @@ public class HelpActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+    }
+
+    protected AlertDialog funAlertDialog(String TittleStr, String message) {
+        AlertDialog.Builder ADbuilder = new AlertDialog.Builder(HelpActivity.this);
+        AlertDialog alertDialog;
+        ADbuilder.setIcon(R.mipmap.ic_launcher)
+                .setTitle(TittleStr)
+                .setMessage(message)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+        alertDialog = ADbuilder.create();
+        System.out.println("AlertDialog 输出");
+        return alertDialog;
     }
 
 }
