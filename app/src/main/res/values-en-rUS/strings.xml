@@ -1,19 +1,22 @@
 <resources>
     <string name="app_name">ZhouYi(Chinese practise divination)</string>
-    <string name="developer_information">开发信息：\n 开发团队：慧眼 \n 成员：\n 1.叶新宇 \n 2.钱嘉俊 \n 3.董梦媛</string>
+    <string name="developer_information">Development Information: \ n Development Team: Clever Eye team \ n Members: \ n 1. Ye Xinyu \ n 2. Qian Jiajun \ n 3. Dong Mengyuan</string>
     <string name="error">An error occurred. Please check the input or contact the developer.</string>
     <string name="search">Search</string>
     <string name="gua_drawable">Knowing the image of divination, not knowing its meaning.</string>
     <string name="gua_mean">Knowing the divination\'s mean,not knowing its image. </string>
     <string name="please_click">Please click the spinner at the top of the switch to select the divination name.</string>
     <string name="click">You clicked on the <tools id="string">%1s</tools> bar.</string>
-    <string name="music">music</string>
+    <string name="music">Music</string>
     <string name="sounds">Sounds</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
-    <string name="first_use_title">第一次使用</string>
+    <string name="first_use_title">First use</string>
     <string name="company">Clever Eye Studio</string>
-    <string name="first_wse_message">您是否需要了解《周易》的历史、作用、解读及如何使用本软件？</string>
-    <string name="use_type_face">使用内置字体</string>
-    <string name="BackPressend">再按一次退出程序</string>
+    <string name="first_wse_message">Do you need to understand the history,
+                                     function, interpretation and how to use the software
+                                     of Zhouyi?</string>
+    <string name="use_type_face">Use built-in fonts</string>
+    <string name="BackPressend">Press again to exit the program</string>
+    <string name="hou_to_read"></string>
 </resources>

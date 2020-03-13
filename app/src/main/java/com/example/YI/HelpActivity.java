@@ -14,12 +14,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
 
+import pl.droidsonroids.gif.GifDrawable;
+import pl.droidsonroids.gif.GifImageView;
+
 public class HelpActivity extends AppCompatActivity {
 
     ListView HelpList;
-    AlertDialog alertDialog;
-    View gifView;
+    AlertDialog HelpAlertDialog;
     String[] string;
+    View gifView;
+    GifImageView HGIV;
+    GifDrawable HGD;
 
     @SuppressLint("InflateParams")
     @Override
@@ -31,17 +36,22 @@ public class HelpActivity extends AppCompatActivity {
         gifView = getLayoutInflater().inflate(R.layout.gif_view, null);
         HelpList = findViewById(R.id.help_list);
 
-        alertDialog = new AlertDialog.Builder(this)
+        HGIV = gifView.findViewById(R.id.GIF_help);
+        HGD = (GifDrawable) HGIV.getDrawable();
+
+        HelpAlertDialog = new AlertDialog.Builder(this)
                 .setTitle(string[1])
                 .setIcon(R.mipmap.ic_launcher)
                 .setView(gifView)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        HGD.stop();
+                        HGD.reset();
                     }
                 })
                 .create();
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(getDrawable(R.drawable.wood240));
@@ -55,7 +65,19 @@ public class HelpActivity extends AppCompatActivity {
         HelpList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                alertDialog.show();
+                switch (position) {
+                    case 0:
+                        break;
+                    case 1:
+                        HelpAlertDialog.show();
+                        HGD.start();
+                        HGD.reset();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                }
             }
         });
 

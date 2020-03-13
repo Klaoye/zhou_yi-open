@@ -21,10 +21,10 @@
         <item>Dun</item>
         <item>Fou</item>
 
-        <item>夬</item>
-        <item>兑</item>
-        <item>革</item>
-        <item>随</item>
+        <item>Jue</item>
+        <item>Dui</item>
+        <item>Ge</item>
+        <item>Sui</item>
         <item>大过</item>
         <item>困</item>
         <item>咸</item>
@@ -93,9 +93,9 @@
     </string-array>
 
     <string-array name="help_array">
-        <item>如何浅读《周易》</item>
-        <item>如何使用本产品</item>
-        <item>《周易》介绍</item>
-        <item>易学简单应用（梅花易数）</item>
+        <item>How to read Zhouyi</item>
+        <item>How to use this product</item>
+        <item>Introduction to Zhouyi</item>
+        <item>Simple Application of I Ching (Plum Blossom Count)</item>
     </string-array>
 </resources>

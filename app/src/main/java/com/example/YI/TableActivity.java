@@ -947,14 +947,11 @@ public class TableActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if((System.currentTimeMillis() - exitTime) < 2500){
+        long currentTime = System.currentTimeMillis();
+        if ((currentTime - exitTime) >= 2500) {
             Toast.makeText(TableActivity.this,R.string.BackPressend,Toast.LENGTH_SHORT).show();
-            exitTime = System.currentTimeMillis();
+            exitTime = currentTime;
         }else{
-            Intent startMain = new Intent(Intent.ACTION_MAIN);
-            startMain.addCategory(Intent.CATEGORY_HOME);
-            startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(startMain);
             System.exit(0);
             System.out.println("application 完全退出");
         }

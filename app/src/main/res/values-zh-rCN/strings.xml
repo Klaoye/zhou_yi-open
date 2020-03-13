@@ -16,4 +16,5 @@
     <string name="first_wse_message">您是否需要了解《周易》的作用、计算、历史及如何使用本软件？</string>
     <string name="use_type_face">使用内置字体</string>
     <string name="BackPressend">再按一次退出程序</string>
+    <string name="hou_to_read"></string>
 </resources>
