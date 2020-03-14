@@ -21,7 +21,8 @@ import pl.droidsonroids.gif.GifImageView;
 public class HelpActivity extends AppCompatActivity {
 
     ListView HelpList;//帮助界面列表
-    AlertDialog HelpAlertDialog, ReadZhouYiAlertDialog;
+    AlertDialog HelpAlertDialog;
+    AlertDialog ReadZhouYiAlertDialog;
     String[] string;
     View gifView;
     GifImageView HGIV;

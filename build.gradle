@@ -28,7 +28,6 @@ allprojects {
         google{url 'https://maven.aliyun.com/repository/google'}
         jcenter{url 'https://maven.aliyun.com/repository/jcenter'}
 
-        
     }
 }
 
