@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ZhouYi(Chinese practise divination)</string>
-    <string name="developer_information">Development Information: \ n Development Team: Clever Eye team \ n Members: \ n 1. Ye Xinyu \ n 2. Qian Jiajun \ n 3. Dong Mengyuan</string>
+    <string name="developer_information">Development Information: \n Development Team: Clever Eye team \n Members: \n 1. Ye Xinyu \n 2. Qian Jiajun \n 3. Dong Mengyuan</string>
     <string name="error">An error occurred. Please check the input or contact the developer.</string>
     <string name="search">Search</string>
     <string name="gua_drawable">Knowing the image of divination, not knowing its meaning.</string>
@@ -11,6 +11,8 @@
     <string name="sounds">Sounds</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
+    <string name="new_text">new text</string>
+    <string name="can_copy">Body content can be copied.</string>
     <string name="first_use_title">First use</string>
     <string name="company">Clever Eye Studio</string>
     <string name="first_wse_message">Do you need to understand the history,
@@ -18,6 +20,16 @@
                                      of Zhouyi?</string>
     <string name="use_type_face">Use built-in fonts</string>
     <string name="BackPressend">Press again to exit the program</string>
-    <string name="hou_to_read"></string>
+    <string name="save">save</string>
+    <string name="delete">delete</string>
+    <string name="title">title</string>
+    <string name="text_contents">Main contents</string>
+    <string name="hou_to_read">"Book of Changes" or "Book of Changes" is one of the traditional Chinese classics. There are sixty-four hexagrams in Zhouyi, and each hexagram consists of six yáo (solid and dotted lines, named "爻").
+ Each tadpole in the hexagram has meaning, which is called "yao ci", and "hexagram" is a summary and comment on the entire hexagram.
+The solid line is "yang" and the dotted line is "yin". The three lines are composed of gossips. The two groups of gospels are composed of sixty-four hexagrams.
+Gossip is the basis in Yixue. Gossip can be expressed as direction, time (hours, solar terms), five elements, etc. Therefore, the basic algorithms of Yixue all start from gossip.
+"I Ching" has a wide range of applications: the laws of celestial body movements, seasons and seasonal speculations, military strategies, traditional Chinese medicine, determination of good times, searching for habitable areas or lost objects, gaining advantages and avoiding evils, philosophical ideas, combing relationships, etc. By breaking down the sixty-four hexagrams into gossips, the beginners can get a preliminary understanding of the operation mechanism of Zhouyi, and the in-depth researchers can use them more smoothly.
+If you have any questions or suggestions, your feedback is always welcome. I hope our products will be helpful for your study of Yijing.
+</string>
     <string name="building">building……</string>
 </resources>

@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -34,6 +35,15 @@ public class HelpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(getDrawable(R.drawable.wood240));
+        }//修改活动栏样式
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+            String[] str_arry = getResources().getStringArray(R.array.table_menu);
+            Objects.requireNonNull(getSupportActionBar()).setTitle(str_arry[1]);
+        }//设置顶部返回箭头
+
         string = getResources().getStringArray(R.array.help_array);
         gifView = getLayoutInflater().inflate(R.layout.gif_view, null);
         HelpList = findViewById(R.id.help_list);
@@ -54,14 +64,6 @@ public class HelpActivity extends AppCompatActivity {
                 })
                 .create();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(getDrawable(R.drawable.wood240));
-        }//修改活动栏样式
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-            String[] str_arry = getResources().getStringArray(R.array.table_menu);
-            Objects.requireNonNull(getSupportActionBar()).setTitle(str_arry[1]);
-        }//设置顶部返回箭头
 
         HelpList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -104,12 +106,16 @@ public class HelpActivity extends AppCompatActivity {
         finish();
     }
 
-    protected AlertDialog funAlertDialog(String TittleStr, String message) {
+    protected AlertDialog funAlertDialog(String TittleStr, final String message) {
         AlertDialog.Builder ADbuilder = new AlertDialog.Builder(HelpActivity.this);
         AlertDialog alertDialog;
+        View view = getLayoutInflater().inflate(R.layout.universal_text_view, null);
+        TextView textView = view.findViewById(R.id.universal_textView);
+        textView.setText(message);
+        textView.setTextIsSelectable(true);
         ADbuilder.setIcon(R.mipmap.ic_launcher)
                 .setTitle(TittleStr)
-                .setMessage(message)
+                .setView(view)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -117,7 +123,8 @@ public class HelpActivity extends AppCompatActivity {
                     }
                 });
         alertDialog = ADbuilder.create();
-        System.out.println("AlertDialog 输出");
+
+        System.out.println("help AlertDialog" + TittleStr + " 输出");
         return alertDialog;
     }
 

@@ -8,12 +8,12 @@
     tools:context=".SettingsActivity">
 
     <Switch
-        android:id="@+id/switch_type_face"
+        android:id="@+id/switch_can_copy"
         android:layout_width="0dp"
         android:layout_height="77dp"
-        android:text="@string/use_type_face"
+        android:text="@string/can_copy"
         android:textSize="30sp"
-        android:thumb="@drawable/switch_thumb_white"
+        android:thumb="@drawable/switch_thumb_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

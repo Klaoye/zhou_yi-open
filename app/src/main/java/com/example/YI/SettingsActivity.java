@@ -19,11 +19,11 @@ public class SettingsActivity extends AppCompatActivity {
     SharedPreferences.Editor settings_editor;
     Switch switch_play_music;//音乐开关
     Switch switch_play_sounds;//音效开关
-    Switch switch_typeface;
+    Switch switch_canCopay;
     Intent MusicService;//音乐服务
     private boolean is_play_music;//是否播放音乐
     private boolean is_play_sounds;//是否播放音效
-    private boolean use_typeface;
+    private boolean canCopy;
 
     @SuppressLint("CommitPrefEdits")
     @Override
@@ -45,14 +45,14 @@ public class SettingsActivity extends AppCompatActivity {
 
         switch_play_music = findViewById(R.id.switch_music);
         switch_play_sounds = findViewById(R.id.switch_sounds);
-        switch_typeface = findViewById(R.id.switch_type_face);
+        switch_canCopay = findViewById(R.id.switch_can_copy);
 
         settings = getSharedPreferences("data", Context.MODE_PRIVATE);
         settings_editor = settings.edit();
 
-        is_play_music = settings.getBoolean("is_play_music", is_play_music);
-        is_play_sounds = settings.getBoolean("is_play_sounds", is_play_sounds);
-        use_typeface = settings.getBoolean("is_use_typeface", use_typeface);
+        is_play_music = settings.getBoolean("is_play_music", true);
+        is_play_sounds = settings.getBoolean("is_play_sounds", true);
+        canCopy = settings.getBoolean("can_copy", false);
 
         if (is_play_music) {//音乐开关
             switch_play_music.setChecked(true);
@@ -64,10 +64,10 @@ public class SettingsActivity extends AppCompatActivity {
         } else {
             switch_play_sounds.setChecked(false);
         }
-        if (use_typeface) {
-            switch_typeface.setChecked(true);
+        if (canCopy) {
+            switch_canCopay.setChecked(true);
         } else {
-            switch_typeface.setChecked(false);
+            switch_canCopay.setChecked(false);
         }
 
         switch_play_music.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -108,21 +108,21 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        switch_typeface.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        switch_canCopay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean b) {
                 if (b) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        switch_typeface.setThumbResource(R.drawable.switch_thumb_white);
+                        switch_canCopay.setThumbResource(R.drawable.switch_thumb_white);
                     }
                 } else {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        switch_typeface.setThumbResource(R.drawable.switch_thumb_black);
+                        switch_canCopay.setThumbResource(R.drawable.switch_thumb_black);
                     }
                 }
-                settings_editor.putBoolean("is_use_typeface", b).apply();
-                use_typeface = settings.getBoolean("is_use_typeface", use_typeface);
-                System.out.println("使用内置字体" + b);
+                settings_editor.putBoolean("can_copy", b).apply();
+                canCopy = settings.getBoolean("can_copy", false);
+                System.out.println("可否复制正文" + b);
             }
         });
     }

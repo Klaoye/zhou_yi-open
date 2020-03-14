@@ -59,6 +59,7 @@ public class TableActivity extends AppCompatActivity {
     boolean play_sounds;//是否播放音效
     boolean sounds_setting;//音效是否有初始设置
     boolean first_use;
+    boolean canCopy;
     AlertDialog about_alertDialog;
     AlertDialog first_use_alertDialog;
     private int up_gua_min_id;//上卦
@@ -109,6 +110,7 @@ public class TableActivity extends AppCompatActivity {
         music_setting = settings.getBoolean("music_setting", true);
         sounds_setting = settings.getBoolean("sounds_setting", true);
         first_use = settings.getBoolean("first_use", true);
+        canCopy = settings.getBoolean("can_copy", false);
 
         if (music_setting) {
             editor.putBoolean("is_play_music", true).apply();
@@ -126,8 +128,8 @@ public class TableActivity extends AppCompatActivity {
             System.out.println("音效初始化成功");
         }//判断音效设置是否有过改动
 
-        play_music = settings.getBoolean("is_play_music", play_music);
-        play_sounds = settings.getBoolean("is_play_sounds", play_sounds);
+        play_music = settings.getBoolean("is_play_music", true);
+        play_sounds = settings.getBoolean("is_play_sounds", true);
 
         if (play_music) {//是否启动音乐服务
             startService(MusicService);
@@ -829,7 +831,11 @@ public class TableActivity extends AppCompatActivity {
                 }
             }
         });
-        //SearchTextView.setTextIsSelectable(true);//复制文本框文字
+        if (canCopy) {
+            SearchTextView.setTextIsSelectable(true);//复制文本框文字
+        } else {
+            SearchTextView.setTextIsSelectable(false);//复制文本框文字
+        }
 
         //开发者信息
         about_alertDialog = new AlertDialog.Builder(this)
@@ -926,13 +932,21 @@ public class TableActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();//刷新界面时更新值
-        play_music = settings.getBoolean("is_play_music", play_music);
-        play_sounds = settings.getBoolean("is_play_sounds", play_sounds);
+        play_music = settings.getBoolean("is_play_music", true);
+        play_sounds = settings.getBoolean("is_play_sounds", true);
         first_use = settings.getBoolean("first_use", false);
+        canCopy = settings.getBoolean("can_copy", false);
+
         if (play_music) {//是否启动音乐服务
             startService(MusicService);
         } else {
             stopService(MusicService);
+        }
+
+        if (canCopy) {
+            SearchTextView.setTextIsSelectable(true);//复制文本框文字
+        } else {
+            SearchTextView.setTextIsSelectable(false);//复制文本框文字
         }
         System.out.println("table重新读值成功");
     }
