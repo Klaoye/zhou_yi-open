@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import java.io.File;
+
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
@@ -14,6 +16,12 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        String filePath = "/data/data/com.example.YI/NoteData";
+        File file = new File(filePath);
+        file.mkdir();
+        System.out.println("文件夹 " + filePath + " 已输出");
+
 
         //GIF模块
         GifImageView GifIA1 = findViewById(R.id.GIFA1);

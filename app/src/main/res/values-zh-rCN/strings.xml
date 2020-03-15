@@ -12,6 +12,7 @@
     <string name="cancel">取消</string>
     <string name="ok">确定</string>
     <string name="new_text">新建文本</string>
+    <string name="cant_null">标题不能为空！</string>
     <string name="can_copy">正文内容可复制</string>
     <string name="company">慧眼工作室</string>
     <string name="first_use_title">第一次使用</string>
@@ -21,6 +22,9 @@
     <string name="save">保存</string>
     <string name="delete">删除</string>
     <string name="title">标题</string>
+    <string name="created">已创建</string>
+    <string name="deleted">已删除</string>
+    <string name="is_delete">是否删除</string>
     <string name="text_contents">正文内容</string>
     <string name="hou_to_read">《周易》即《易经》是中国传统经典之一。《周易》有六十四个卦象，每个卦象由六个爻（yáo)（卦象中的实线和虚线，称之为“爻”）组成。\n
                                 卦象中每个爻都有含义，称之为“爻辞”，“卦辞”是对整个卦象的一个总结和评论。\n

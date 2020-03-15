@@ -165,7 +165,7 @@ public class TableActivity extends AppCompatActivity {
         }
 
         List<Map<String, Object>> List_gua_max = new ArrayList<Map<String, Object>>();//创建六十四卦文字列表
-        //遍历图片及文字
+        //遍历文字
         for (String guaMax : gua_max) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("text", guaMax);
