@@ -833,8 +833,10 @@ public class TableActivity extends AppCompatActivity {
         });
         if (canCopy) {
             SearchTextView.setTextIsSelectable(true);//复制文本框文字
+            // SearchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
         } else {
-            SearchTextView.setTextIsSelectable(false);//复制文本框文字
+            SearchTextView.setTextIsSelectable(false);
+            // SearchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
         }
 
         //开发者信息
@@ -945,9 +947,13 @@ public class TableActivity extends AppCompatActivity {
 
         if (canCopy) {
             SearchTextView.setTextIsSelectable(true);//复制文本框文字
+            // SearchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
         } else {
+            // SearchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
             SearchTextView.setTextIsSelectable(false);//复制文本框文字
         }
+        SearchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
+
         System.out.println("table重新读值成功");
     }
 

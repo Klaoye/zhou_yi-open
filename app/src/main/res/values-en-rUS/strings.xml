@@ -26,7 +26,10 @@
     <string name="title">title</string>
     <string name="created">Created</string>
     <string name="deleted">Deleted</string>
-    <string name="is_delete">delete or not</string>
+    <string name="out_put">Export</string>
+    <string name="chose">chose</string>
+    <string name="file_path">file path:</string>
+    <string name="note_operation">Please choose the following operation</string>
     <string name="text_contents">Main contents</string>
     <string name="hou_to_read">"Book of Changes" or "Book of Changes" is one of the traditional Chinese classics. There are sixty-four hexagrams in Zhouyi, and each hexagram consists of six yáo (solid and dotted lines, named "爻").
  Each tadpole in the hexagram has meaning, which is called "yao ci", and "hexagram" is a summary and comment on the entire hexagram.
