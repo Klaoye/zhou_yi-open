@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import java.io.File;
-import java.io.IOError;
 
 import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
@@ -18,18 +17,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String infilePath = "/data/data/com.example.YI/NoteData";
-        String outfilePath = "/storage/emulated/0/ZhouYINote";
+        String infilePath = getFilesDir() + "/NoteData/";
+
         File infile = new File(infilePath);
-        File outfile = new File(outfilePath);
+
         infile.mkdir();
         System.out.println("文件夹 " + infilePath + " 已输出");
-        try {
-            outfile.mkdir();
-            System.out.println("文件夹 " + outfilePath + " 已输出");
-        } catch (IOError e) {
-            System.out.println("文件夹 " + outfilePath + " 输出失败");
-        }
+
 
         //GIF模块
         GifImageView GifIA1 = findViewById(R.id.GIFA1);

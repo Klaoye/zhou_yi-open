@@ -1,12 +1,15 @@
 package com.example.YI;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,8 +18,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -26,6 +33,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.channels.FileChannel;
 import java.util.Objects;
 
 public class NoteActivity extends AppCompatActivity {
@@ -48,10 +56,7 @@ public class NoteActivity extends AppCompatActivity {
 
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, funNoteList());
 
-
         noteListView.setAdapter(adapter);
-
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(getDrawable(R.drawable.wood240));
@@ -61,6 +66,10 @@ public class NoteActivity extends AppCompatActivity {
             String[] str_arry = getResources().getStringArray(R.array.table_menu);
             Objects.requireNonNull(getSupportActionBar()).setTitle(str_arry[3]);
         }//设置顶部返回箭头
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            checkPermission();
+        }
 
         //视图注册，控件获取
         addView = getLayoutInflater().inflate(R.layout.write_note_view, null);
@@ -114,6 +123,7 @@ public class NoteActivity extends AppCompatActivity {
                 return true;
             }
         });
+
     }
 
     //显示 笔记 弹窗方法
@@ -169,13 +179,13 @@ public class NoteActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 })
-                /*    .setNeutralButton(R.string.out_put, new DialogInterface.OnClickListener() {
+                .setNeutralButton(R.string.out_put, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                             funOutSave(fileName);
-                             funOutBrowse();
+                            funOutBrowse();
+                            funOutSave(fileName);
                         }
-                    }) */
+                })
                 .setNegativeButton(R.string.cancel, null)
                 .create();
         alertDialog = builder.create();
@@ -184,41 +194,41 @@ public class NoteActivity extends AppCompatActivity {
 
     //导出笔记文件
     protected void funOutSave(String fileName) {
-        String inString;
-        File filePathIn = new File("/data/data/com.example.YI/NoteData/" + fileName + ".txt");
-        File filePathOut = new File("/storage/emulated/0/ZhouYINote/" + fileName + ".txt");
-        try {
-            FileInputStream inputStream = new FileInputStream(filePathIn);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            StringBuilder builder = new StringBuilder();
-            String string;
-            while ((string = reader.readLine()) != null) {
-                builder.append(string);
-            }
-            reader.close();
-            inString = builder.toString();
-        } catch (IOException eIOE) {
-            eIOE.printStackTrace();
-            inString = "error";
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            checkPermission();
         }
+        String outfilePath = Environment.getExternalStorageDirectory() + "/ZhouYINote/";
+        File outfile = new File(outfilePath);
+
+        String stringFileIn = getFilesDir() + "/NoteData/" + fileName + ".txt";
+        String stringFileOut = Environment.getExternalStorageState() + "/ZhouYINote/";
+        File fileIn = new File(stringFileIn);
+        File fileOut = new File(stringFileOut);
 
         try {
-            filePathOut.createNewFile();
-            FileOutputStream outputStream = new FileOutputStream(filePathOut);
-            outputStream.write(inString.getBytes());
+            outfile.mkdir();
+            //fileOut.createNewFile();
+
+            FileInputStream inputStream = new FileInputStream(fileIn);
+            FileOutputStream outputStream = new FileOutputStream(fileOut);
+
+            FileChannel channelIn = inputStream.getChannel();
+            FileChannel channelOut = outputStream.getChannel();
+
+            channelIn.transferTo(0, channelIn.size(), channelOut);
+            inputStream.close();
             outputStream.close();
-            System.out.println("TXT文件：“" + fileName + "” 已转储");
+            System.out.println("文件" + fileName + "导出成功");
         } catch (IOException e) {
-            System.out.println("TXT文件：“" + fileName + "”转储失败");
             e.printStackTrace();
+            System.out.println("文件" + fileName + " 导出失败");
         }
-
     }
 
     //将笔记文件写入内部 方法
     protected void funSaveFile(String fileName, String message) {
-        String filePathIn = ("data/data/com.example.YI/NoteData/" + fileName + ".txt");
-        //  String filePathOut = ("/storage/emulated/0/ZhouYINote/"+fileName+".txt");
+        String filePathIn = (getFilesDir() + "/NoteData/" + fileName + ".txt");
+        // String filePathOut = (Environment.getExternalStorageDirectory()+"/ZhouYINote/"+fileName+".txt");
         File file = new File(filePathIn);
 
         try {
@@ -235,7 +245,7 @@ public class NoteActivity extends AppCompatActivity {
 
     //输出文件浏览
     protected void funOutBrowse() {
-        File file = new File("/storage/emulated/0/ZhouYINote/");
+        File file = new File(Environment.getExternalStorageDirectory() + "/ZhouYINote/");
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         if (file == null || !file.exists()) {
             return;
@@ -244,13 +254,13 @@ public class NoteActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setDataAndType(Uri.fromFile(file), "*/*");
 
-        startActivityForResult(Intent.createChooser(intent, getString(R.string.file_path)), 1);
+        startActivityForResult(Intent.createChooser(intent, getString(R.string.file_path)), 0);
     }
 
     //读取内部笔记 方法
     protected String funReadFile(String fileName) {
         String outString;
-        File filePath = new File("/data/data/com.example.YI/NoteData/" + fileName + ".txt");
+        File filePath = new File(getFilesDir() + "/NoteData/" + fileName + ".txt");
         try {
             FileInputStream inputStream = new FileInputStream(filePath);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -270,14 +280,14 @@ public class NoteActivity extends AppCompatActivity {
 
     //删除 方法
     protected void funDeleteFile(String fileName) {
-        File file = new File("/data/data/com.example.YI/NoteData/" + fileName + ".txt");
+        File file = new File(getFilesDir() + "/NoteData/" + fileName + ".txt");
         file.delete();
     }
 
 
     //遍历文件 方法
     protected String[] funNoteList() {
-        File filePath = new File("/data/data/com.example.YI/NoteData/");
+        File filePath = new File(getFilesDir() + "/NoteData/");
         String fileName;
         File[] files = filePath.listFiles();
         assert files != null;
@@ -314,25 +324,71 @@ public class NoteActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case 1:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    //检验是否获取权限，如果获取权限，外部存储会处于开放状态，会弹出一个toast提示获得授权
-                    String sdCard = Environment.getExternalStorageState();
-                    if (sdCard.equals(Environment.MEDIA_MOUNTED)) {
-                        Toast.makeText(this, "获得授权", Toast.LENGTH_LONG).show();
-                    }
-                } else {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(NoteActivity.this, "buxing", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-                break;
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void checkPermission() {
+        int targetSdkVersion = 0;
+        String[] PermissionString = {Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        try {
+            final PackageInfo info = this.getPackageManager().getPackageInfo(this.getPackageName(), 0);
+            targetSdkVersion = info.applicationInfo.targetSdkVersion;//获取应用的Target版本
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            Log.e("err", "检查权限_err0");
         }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //Build.VERSION.SDK_INT是获取当前手机版本 Build.VERSION_CODES.M为6.0系统
+            //如果系统>=6.0
+            if (targetSdkVersion >= Build.VERSION_CODES.M) {
+                //第 1 步: 检查是否有相应的权限
+                boolean isAllGranted = checkPermissionAllGranted(PermissionString);
+                if (isAllGranted) {
+                    Log.e("err", "所有权限已经授权！");
+                    return;
+                }
+                // 一次请求多个权限, 如果其他有权限是已经授予的将会自动忽略掉
+                ActivityCompat.requestPermissions(this,
+                        PermissionString, 1);
+            }
+        }
+    }
+
+    /**
+     * 检查是否拥有指定的所有权限
+     */
+    private boolean checkPermissionAllGranted(String[] permissions) {
+        for (String permission : permissions) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                // 只要有一个权限没有被授予, 则直接返回 false
+                Log.e("err", "权限" + permission + "没有授权");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //申请权限结果返回处理
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1) {
+            boolean isAllGranted = true;
+            // 判断是否所有的权限都已经授予了
+            for (int grant : grantResults) {
+                if (grant != PackageManager.PERMISSION_GRANTED) {
+                    isAllGranted = false;
+                    break;
+                }
+            }
+            if (isAllGranted) {
+                // 所有的权限都授予了
+                Log.e("err", "权限都授权了");
+            } else {
+                // 弹出对话框告诉用户需要权限的原因, 并引导用户去应用权限管理中手动打开权限按钮
+                //容易判断错
+                //MyDialog("提示", "某些权限未开启,请手动开启", 1) ;
+            }
+        }
     }
 }
