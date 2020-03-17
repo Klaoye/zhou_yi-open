@@ -38,7 +38,8 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.7'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8'
+    api project(path: ':GDTSDK')
+    //implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8'
     //implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     // implementation (name:'GDTSDK', ext:'aar')
 

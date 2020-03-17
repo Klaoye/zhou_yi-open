@@ -1,3 +1,3 @@
-include ':app'
+include ':app', ':GDTSDK'
 rootProject.name='六十四卦查询'
 
