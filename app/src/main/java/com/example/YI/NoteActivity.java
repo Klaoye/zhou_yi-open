@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -25,20 +26,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.channels.FileChannel;
 import java.util.Objects;
 
 public class NoteActivity extends AppCompatActivity {
     AlertDialog inputAlertDialog, isDeleteDialog;//新建文本对话框
-    FloatingActionButton addFloatButton;//新建文本悬浮按钮
+    Button addButton;//新建文本悬浮按钮
     View addView;//新建文本视图
     EditText addTittleEdit, addTextEdit;//新建标题，文本
     ArrayAdapter<String> adapter;
@@ -50,7 +48,7 @@ public class NoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
 
-        addFloatButton = findViewById(R.id.note_FloatButton_add);
+        addButton = findViewById(R.id.add_Button);
         noteListView = findViewById(R.id.list_note);
         intent = new Intent(NoteActivity.this, NoteActivity.class);
 
@@ -66,10 +64,6 @@ public class NoteActivity extends AppCompatActivity {
             String[] str_arry = getResources().getStringArray(R.array.table_menu);
             Objects.requireNonNull(getSupportActionBar()).setTitle(str_arry[3]);
         }//设置顶部返回箭头
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            checkPermission();
-        }
 
         //视图注册，控件获取
         addView = getLayoutInflater().inflate(R.layout.write_note_view, null);
@@ -103,7 +97,7 @@ public class NoteActivity extends AppCompatActivity {
                 })//取消按钮
                 .create();
 
-        addFloatButton.setOnClickListener(new View.OnClickListener() {
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 inputAlertDialog.show();
@@ -179,13 +173,13 @@ public class NoteActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 })
-                .setNeutralButton(R.string.out_put, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            funOutBrowse();
-                            funOutSave(fileName);
-                        }
-                })
+                /*   .setNeutralButton(R.string.out_put, new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                               funOutBrowse();
+                               funOutSave(fileName);
+                           }
+                   })   */
                 .setNegativeButton(R.string.cancel, null)
                 .create();
         alertDialog = builder.create();
@@ -197,31 +191,36 @@ public class NoteActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             checkPermission();
         }
-        String outfilePath = Environment.getExternalStorageDirectory() + "/ZhouYINote/";
-        File outfile = new File(outfilePath);
 
-        String stringFileIn = getFilesDir() + "/NoteData/" + fileName + ".txt";
-        String stringFileOut = Environment.getExternalStorageState() + "/ZhouYINote/";
-        File fileIn = new File(stringFileIn);
-        File fileOut = new File(stringFileOut);
+        String inString;
+        String filePathOut = (Environment.DIRECTORY_DOWNLOADS + fileName + ".txt");
+        File filePath = new File(getFilesDir() + "/NoteData/" + fileName + ".txt");
+        try {
+            FileInputStream inputStream = new FileInputStream(filePath);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder builder = new StringBuilder();
+            String string;
+            while ((string = reader.readLine()) != null) {
+                builder.append(string);
+            }
+            reader.close();
+            inString = builder.toString();
+        } catch (IOException eIOE) {
+            eIOE.printStackTrace();
+            inString = "error";
+        }
+
+        File file = new File(filePathOut);
 
         try {
-            outfile.mkdir();
-            //fileOut.createNewFile();
-
-            FileInputStream inputStream = new FileInputStream(fileIn);
-            FileOutputStream outputStream = new FileOutputStream(fileOut);
-
-            FileChannel channelIn = inputStream.getChannel();
-            FileChannel channelOut = outputStream.getChannel();
-
-            channelIn.transferTo(0, channelIn.size(), channelOut);
-            inputStream.close();
+            file.createNewFile();
+            FileOutputStream outputStream = new FileOutputStream(file);
+            outputStream.write(inString.getBytes());
             outputStream.close();
-            System.out.println("文件" + fileName + "导出成功");
+            System.out.println("TXT文件：“" + fileName + "” 已存储");
         } catch (IOException e) {
+            System.out.println("TXT文件：“" + fileName + "”存储失败");
             e.printStackTrace();
-            System.out.println("文件" + fileName + " 导出失败");
         }
     }
 
@@ -245,7 +244,7 @@ public class NoteActivity extends AppCompatActivity {
 
     //输出文件浏览
     protected void funOutBrowse() {
-        File file = new File(Environment.getExternalStorageDirectory() + "/ZhouYINote/");
+        File file = new File(Environment.DIRECTORY_DOWNLOADS);
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         if (file == null || !file.exists()) {
             return;
@@ -254,7 +253,7 @@ public class NoteActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setDataAndType(Uri.fromFile(file), "*/*");
 
-        startActivityForResult(Intent.createChooser(intent, getString(R.string.file_path)), 0);
+        startActivityForResult(intent, 1);
     }
 
     //读取内部笔记 方法

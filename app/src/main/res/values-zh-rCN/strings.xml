@@ -11,7 +11,7 @@
     <string name="sounds">音效</string>
     <string name="cancel">取消</string>
     <string name="ok">确定</string>
-    <string name="new_text">新建文本</string>
+    <string name="new_text">新建笔记</string>
     <string name="cant_null">标题不能为空！</string>
     <string name="can_copy">正文内容可复制</string>
     <string name="company">慧眼工作室</string>

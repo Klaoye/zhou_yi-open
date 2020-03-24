@@ -12,7 +12,7 @@
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
     <string name="cant_null">The title can not be blank！</string>
-    <string name="new_text">new text</string>
+    <string name="new_text">write a new note</string>
     <string name="can_copy">Body content can be copied.</string>
     <string name="first_use_title">First use</string>
     <string name="company">Clever Eye Studio</string>
