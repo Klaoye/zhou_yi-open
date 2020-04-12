@@ -1,0 +1,50 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* proguard-project.txt
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => BDSDK\src\main\AndroidManifest.xml
+* assets\ => BDSDK\src\main\assets
+* libs\armeabi-v7a\libBDTTSDecoder_V1.so => BDSDK\src\main\jniLibs\armeabi-v7a\libBDTTSDecoder_V1.so
+* libs\armeabi-v7a\libby-sdk-root-jni.so => BDSDK\src\main\jniLibs\armeabi-v7a\libby-sdk-root-jni.so
+* libs\armeabi\libBDTTSDecoder_V1.so => BDSDK\src\main\jniLibs\armeabi\libBDTTSDecoder_V1.so
+* libs\armeabi\libby-sdk-root-jni.so => BDSDK\src\main\jniLibs\armeabi\libby-sdk-root-jni.so
+* libs\async-httpclient-1.2.0.jar => BDSDK\libs\async-httpclient-1.2.0.jar
+* libs\baidu_cuid.jar => BDSDK\libs\baidu_cuid.jar
+* libs\BaiduAppX_V2.4.1_20160530.jar => BDSDK\libs\BaiduAppX_V2.4.1_20160530.jar
+* libs\BDAccount_SDK_V1.0.0.jar => BDSDK\libs\BDAccount_SDK_V1.0.0.jar
+* libs\com.baidu.speechsynthesizer_1.1.2.jar => BDSDK\libs\com.baidu.speechsynthesizer_1.1.2.jar
+* libs\galaxy-lite-1.0.0.jar => BDSDK\libs\galaxy-lite-1.0.0.jar
+* libs\galaxy_lite.jar => BDSDK\libs\galaxy_lite.jar
+* libs\mips\libby-sdk-root-jni.so => BDSDK\src\main\jniLibs\mips\libby-sdk-root-jni.so
+* libs\sapi-core-6.10.3.jar => BDSDK\libs\sapi-core-6.10.3.jar
+* libs\x86\libby-sdk-root-jni.so => BDSDK\src\main\jniLibs\x86\libby-sdk-root-jni.so
+* lint.xml => BDSDK\lint.xml
+* res\ => BDSDK\src\main\res\
+* src\ => BDSDK\src\main\java
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
