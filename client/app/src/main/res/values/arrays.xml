@@ -93,6 +93,16 @@
         <item>笔记</item>
         <item>黄历</item>
     </string-array>
+    <string-array name="table_menu_drawable">
+        <item>@drawable/qian</item>
+        <item>@drawable/dui</item>
+        <item>@drawable/li</item>
+        <item>@drawable/zhen</item>
+        <item>@drawable/xun</item>
+        <item>@drawable/kan</item>
+        <item>@drawable/gen</item>
+        <item>@drawable/kun</item>
+    </string-array>
     <string-array name="help_array">
         <item>如何浅读《周易》</item>
         <item>如何使用本产品</item>

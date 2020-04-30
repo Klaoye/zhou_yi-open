@@ -5,9 +5,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.TypedArray;
 import android.graphics.Typeface;
-import android.media.AudioAttributes;
-import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
@@ -41,9 +40,9 @@ public class TableActivity extends AppCompatActivity {
     SimpleAdapter adapter_gua_max;//六十四卦适配器
     SharedPreferences settings;//共享存储库
     SharedPreferences.Editor editor;//共享存储库编辑器
+
     SoundPool soundPool_table;//音频池
-    SoundPool.Builder builder_soundPool_table;//音频池构建器
-    AudioAttributes.Builder attr_builder;//音频流构建器
+
     Intent MusicService;//音乐服务
     Intent SettingsActivity;//跳转至设置界面
     Intent NoteActivity;
@@ -74,6 +73,7 @@ public class TableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table);
 
+        Global global = new Global();
 
         //实例化Intent
         SettingsActivity = new Intent(TableActivity.this, SettingsActivity.class);
@@ -84,22 +84,7 @@ public class TableActivity extends AppCompatActivity {
 
         menu_id = getResources().getStringArray(R.array.table_menu);//菜单列表数组
 
-        //构建音频池
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder_soundPool_table = new SoundPool.Builder();
-            builder_soundPool_table.setMaxStreams(3);//最多3个音频同时播放
-            attr_builder = new AudioAttributes.Builder();
-            attr_builder.setLegacyStreamType(AudioManager.STREAM_MUSIC);//音乐模式
-            builder_soundPool_table.setAudioAttributes(attr_builder.build());
-            soundPool_table = builder_soundPool_table.build();
-        } else {
-            soundPool_table = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
-        }
-        //在音频池构建音频列表
-        voiceID.put(1, soundPool_table.load(this, R.raw.book, 1));
-        voiceID.put(2, soundPool_table.load(this, R.raw.water, 1));
-        voiceID.put(3, soundPool_table.load(this, R.raw.guqin, 1));
-        voiceID.put(4, soundPool_table.load(this, R.raw.guqin2, 1));
+        soundPool_table = global.MySoundPool(TableActivity.this);
 
         settings = getSharedPreferences("data", MODE_PRIVATE);//获取名为data的共享存储库，仅限本软件修改和读取
         editor = settings.edit();//共享存储库实例化
@@ -144,20 +129,17 @@ public class TableActivity extends AppCompatActivity {
         spinner_gua_min_dn = findViewById(R.id.spinner_gua_min_dn);//下挂
         spinner_gua_max = findViewById(R.id.spinner_gua_max);//六十四卦
 
-        int[] imageID = new int[]{R.drawable.qian, R.drawable.dui,
-                R.drawable.li, R.drawable.zhen,
-                R.drawable.xun, R.drawable.kan,
-                R.drawable.gen, R.drawable.kun
-        };//图片ID数组
+        TypedArray imageID = getResources().obtainTypedArray(R.array.table_menu_drawable);
+        //图片ID数组
 
         String[] gua_min = getResources().getStringArray(R.array.gua_min);//列表文字数组-八卦
         String[] gua_max = getResources().getStringArray(R.array.gua_max);//六十四卦
 
         List<Map<String, Object>> List_gua_min = new ArrayList<Map<String, Object>>();//创建八卦文字列表
         //遍历图片及文字
-        for (int i = 0; i < imageID.length; i++) {
+        for (int i = 0; i < imageID.length(); i++) {
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("image", imageID[i]);
+            map.put("image", imageID.getResourceId(i, 0));
             map.put("text", gua_min[i]);
             List_gua_min.add(map);
         }
