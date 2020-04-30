@@ -72,8 +72,8 @@ public class NoteActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (addTittleEdit.getText().toString() != null) {
-                            funSaveFile(addTittleEdit.getText().toString(), addTittleEdit.getText().toString());
+                        if (addTittleEdit.getText().equals(null)) {
+                            funSaveFile(addTittleEdit.getText().toString(), addTittleEdit.getText().toString(), false);
                             addTittleEdit.setText(null);
                             addTextEdit.setText(null);
                             noteListView.invalidate();
@@ -133,7 +133,7 @@ public class NoteActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (tittle_editor.getText().toString() != null) {
-                            funSaveFile(tittle_editor.getText().toString(), text_editor.getText().toString());
+                            funSaveFile(tittle_editor.getText().toString(), text_editor.getText().toString(), false);
                             System.out.println("note AlertDialog" + fileName + " 已输出");
                         } else {
                             Toast.makeText(NoteActivity.this, R.string.cant_null, Toast.LENGTH_LONG).show();
@@ -150,6 +150,12 @@ public class NoteActivity extends AppCompatActivity {
                         finish();
                         startActivity(intent);
                         System.out.println("note AlertDialog" + fileName + " 已删除");
+                    }
+                })
+                .setNeutralButton(R.string.out_put, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        funSaveFile(tittle_editor.getText().toString(), text_editor.getText().toString(), true);
                     }
                 });
         alertDialog = ADbuilder.create();
@@ -182,58 +188,36 @@ public class NoteActivity extends AppCompatActivity {
         return alertDialog;
     }
 
-    //导出笔记文件
-    protected void funOutSave(String fileName) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            checkPermission();
-        }
-
-        String inString;
-        String filePathOut = (Environment.DIRECTORY_DOWNLOADS + fileName + ".txt");
-        File filePath = new File(getFilesDir() + "/NoteData/" + fileName + ".txt");
-        try {
-            FileInputStream inputStream = new FileInputStream(filePath);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            StringBuilder builder = new StringBuilder();
-            String string;
-            while ((string = reader.readLine()) != null) {
-                builder.append(string);
+    //将笔记文件写入 方法
+    protected void funSaveFile(String fileName, String message, boolean isOut) {
+        File file;
+        if (isOut) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                checkPermission();
             }
-            reader.close();
-            inString = builder.toString();
-        } catch (IOException eIOE) {
-            eIOE.printStackTrace();
-            inString = "error";
+            file = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/" + fileName + ".txt");
+        } else {
+            file = new File(getFilesDir() + "/NoteData/" + fileName + ".txt");
         }
-
-        File file = new File(filePathOut);
-
-        try {
-            file.createNewFile();
-            FileOutputStream outputStream = new FileOutputStream(file);
-            outputStream.write(inString.getBytes());
-            outputStream.close();
-            System.out.println("TXT文件：“" + fileName + "” 已存储");
-        } catch (IOException e) {
-            System.out.println("TXT文件：“" + fileName + "”存储失败");
-            e.printStackTrace();
-        }
-    }
-
-    //将笔记文件写入内部 方法
-    protected void funSaveFile(String fileName, String message) {
-        String filePathIn = (getFilesDir() + "/NoteData/" + fileName + ".txt");
-        // String filePathOut = (Environment.getExternalStorageDirectory()+"/ZhouYINote/"+fileName+".txt");
-        File file = new File(filePathIn);
 
         try {
             file.createNewFile();
             FileOutputStream outputStream = new FileOutputStream(file);
             outputStream.write(message.getBytes());
             outputStream.close();
-            Log.i("file save", "TXT文件：“" + fileName + "”存储成功");
+            Log.i("file save", "TXT文件：“" + fileName + "”存储/导出成功" + file);
+            Toast.makeText(NoteActivity.this, getString(R.string.file_saved) + file, Toast.LENGTH_LONG).show();
+            /*
+            if(isOut){
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setDataAndType(Uri.fromFile(file.getParentFile()),"**");
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                //startActivity(intent);
+                startActivity(Intent.createChooser(intent,"choose"));
+            }
+            */
         } catch (IOException e) {
-            Log.e("file save", "TXT文件：“" + fileName + "”存储失败");
+            Log.e("file save", "TXT文件：“" + fileName + "”存储/导出失败");
             e.printStackTrace();
         }
     }
@@ -307,20 +291,19 @@ public class NoteActivity extends AppCompatActivity {
         Log.i("back pressed", "note已销毁");
     }
 
-
     /***************************权限检查***************************************************************/
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void checkPermission() {
         int targetSdkVersion = 0;
         String[] PermissionString = {Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS};
         try {
             final PackageInfo info = this.getPackageManager().getPackageInfo(this.getPackageName(), 0);
             targetSdkVersion = info.applicationInfo.targetSdkVersion;//获取应用的Target版本
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
-            Log.e("err", "检查权限_err0");
+            Log.w("warming", "检查权限_err0");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -330,7 +313,7 @@ public class NoteActivity extends AppCompatActivity {
                 //第 1 步: 检查是否有相应的权限
                 boolean isAllGranted = checkPermissionAllGranted(PermissionString);
                 if (isAllGranted) {
-                    Log.e("err", "所有权限已经授权！");
+                    Log.w("warming", "所有权限已经授权！");
                     return;
                 }
                 // 一次请求多个权限, 如果其他有权限是已经授予的将会自动忽略掉
@@ -347,7 +330,7 @@ public class NoteActivity extends AppCompatActivity {
         for (String permission : permissions) {
             if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
                 // 只要有一个权限没有被授予, 则直接返回 false
-                Log.e("err", "权限" + permission + "没有授权");
+                Log.e("error", "权限" + permission + "没有授权");
                 return false;
             }
         }
@@ -369,7 +352,7 @@ public class NoteActivity extends AppCompatActivity {
             }
             if (isAllGranted) {
                 // 所有的权限都授予了
-                Log.e("err", "权限都授权了");
+                Log.w("warming", "权限都授权了");
             } else {
                 // 弹出对话框告诉用户需要权限的原因, 并引导用户去应用权限管理中手动打开权限按钮
                 //容易判断错

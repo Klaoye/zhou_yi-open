@@ -53,6 +53,7 @@ array gua_max
 array gua_min
 array help_array
 array table_menu
+array table_menu_drawable
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -1980,6 +1981,7 @@ string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string feng
 string file_path
+string file_saved
 string first_use_title
 string first_wse_message
 string fou

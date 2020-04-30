@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\AndroidStudioProjects\\YI\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
+            "outputFile": "F:\\AndroidStudioProjects\\YI\\client\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Klaoye\\.gradle\\caches\\transforms-2\\files-2.1\\01d1ce10ca23af7c337f83ddb869e418\\Android-PickerView-4.1.6\\res\\values-en\\values-en.xml",

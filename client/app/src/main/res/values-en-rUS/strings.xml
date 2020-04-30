@@ -11,6 +11,7 @@
     <string name="sounds">Sounds</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
+    <string name="file_saved">The file has been saved to</string>
     <string name="getDate">chose Date</string>
     <string name="get_current_time">current Time</string>
     <string name="cant_null">The title can not be blank！</string>

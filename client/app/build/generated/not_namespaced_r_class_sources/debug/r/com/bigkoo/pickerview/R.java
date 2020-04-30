@@ -95,14 +95,14 @@ public final class R {
         private string() {}
 
         public static final int app_name = 0x7f10001c;
-        public static final int pickerview_cancel = 0x7f100093;
-        public static final int pickerview_day = 0x7f100094;
-        public static final int pickerview_hours = 0x7f100095;
-        public static final int pickerview_minutes = 0x7f100096;
-        public static final int pickerview_month = 0x7f100097;
-        public static final int pickerview_seconds = 0x7f100098;
-        public static final int pickerview_submit = 0x7f100099;
-        public static final int pickerview_year = 0x7f10009a;
+        public static final int pickerview_cancel = 0x7f100094;
+        public static final int pickerview_day = 0x7f100095;
+        public static final int pickerview_hours = 0x7f100096;
+        public static final int pickerview_minutes = 0x7f100097;
+        public static final int pickerview_month = 0x7f100098;
+        public static final int pickerview_seconds = 0x7f100099;
+        public static final int pickerview_submit = 0x7f10009a;
+        public static final int pickerview_year = 0x7f10009b;
     }
     public static final class style {
         private style() {}

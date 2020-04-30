@@ -21,8 +21,7 @@ public class MainActivity extends Activity {
         String infilePath = getFilesDir() + "/NoteData/";
 
         File infile = new File(infilePath);
-
-        infile.mkdir();
+        if (!infile.exists()) infile.mkdir();
         System.out.println("文件夹 " + infilePath + " 已输出");
 
 
