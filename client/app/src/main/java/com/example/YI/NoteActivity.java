@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -24,6 +25,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -34,7 +36,7 @@ import java.io.InputStreamReader;
 import java.util.Objects;
 
 public class NoteActivity extends AppCompatActivity {
-    AlertDialog inputAlertDialog, isDeleteDialog;//新建文本对话框
+    AlertDialog inputAlertDialog;//新建文本对话框
     Button addButton;//新建文本悬浮按钮
     View addView;//新建文本视图
     EditText addTittleEdit, addTextEdit;//新建标题，文本
@@ -72,7 +74,7 @@ public class NoteActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (addTittleEdit.getText().equals(null)) {
+                        if (!addTittleEdit.getText().toString().equals("")) {
                             funSaveFile(addTittleEdit.getText().toString(), addTittleEdit.getText().toString(), false);
                             addTittleEdit.setText(null);
                             addTextEdit.setText(null);
@@ -195,7 +197,7 @@ public class NoteActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 checkPermission();
             }
-            file = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/" + fileName + ".txt");
+            file = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/", fileName + ".txt");
         } else {
             file = new File(getFilesDir() + "/NoteData/" + fileName + ".txt");
         }
@@ -206,16 +208,21 @@ public class NoteActivity extends AppCompatActivity {
             outputStream.write(message.getBytes());
             outputStream.close();
             Log.i("file save", "TXT文件：“" + fileName + "”存储/导出成功" + file);
-            Toast.makeText(NoteActivity.this, getString(R.string.file_saved) + file, Toast.LENGTH_LONG).show();
-            /*
+            if (isOut)
+                Toast.makeText(NoteActivity.this, getString(R.string.file_saved) + file, Toast.LENGTH_LONG).show();
+
             if(isOut){
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setDataAndType(Uri.fromFile(file.getParentFile()),"**");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.addCategory(Intent.CATEGORY_DEFAULT);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Uri uri = FileProvider.getUriForFile(getApplicationContext(),
+                        "com.example.YI.provider", file);
+                intent.setDataAndType(uri, "*/*");
+                Log.e("error", uri.toString());
                 //startActivity(intent);
                 startActivity(Intent.createChooser(intent,"choose"));
             }
-            */
+
         } catch (IOException e) {
             Log.e("file save", "TXT文件：“" + fileName + "”存储/导出失败");
             e.printStackTrace();

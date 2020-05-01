@@ -8,10 +8,10 @@ import android.os.Build;
 
 import java.util.HashMap;
 
-class Global {
+public class Global {
 
     //音效方法
-    SoundPool MySoundPool(Context context) {
+    protected SoundPool MySoundPool(Context context) {
         HashMap<Integer, Integer> voiceID = new HashMap<Integer, Integer>();//音频池列表
         SoundPool soundPool_table;//音频池
         SoundPool.Builder builder_soundPool_table;//音频池构建器
