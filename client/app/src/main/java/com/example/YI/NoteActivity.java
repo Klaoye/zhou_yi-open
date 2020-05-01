@@ -193,7 +193,7 @@ public class NoteActivity extends AppCompatActivity {
     //将笔记文件写入 方法
     protected void funSaveFile(String fileName, String message, boolean isOut) {
         File file;
-        if (isOut) {
+        if (isOut) {//如果存储到外部
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 checkPermission();
             }
@@ -211,21 +211,21 @@ public class NoteActivity extends AppCompatActivity {
             if (isOut)
                 Toast.makeText(NoteActivity.this, getString(R.string.file_saved) + file, Toast.LENGTH_LONG).show();
 
-            if(isOut){
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.addCategory(Intent.CATEGORY_DEFAULT);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                Uri uri = FileProvider.getUriForFile(getApplicationContext(),
-                        "com.example.YI.provider", file);
-                intent.setDataAndType(uri, "*/*");
-                Log.e("error", uri.toString());
-                //startActivity(intent);
-                startActivity(Intent.createChooser(intent,"choose"));
-            }
-
         } catch (IOException e) {
             Log.e("file save", "TXT文件：“" + fileName + "”存储/导出失败");
             e.printStackTrace();
+        }
+
+        if (isOut) {
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.addCategory(Intent.CATEGORY_TYPED_OPENABLE);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            Uri uri = FileProvider.getUriForFile(getApplicationContext(),
+                    "com.example.YI.provider", file);
+            intent.setDataAndType(uri, "file/*");
+            Log.e("error", uri.toString());
+            //startActivity(intent);
+            startActivity(Intent.createChooser(intent, "choose"));
         }
     }
 
