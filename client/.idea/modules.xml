@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GDTSDK/GDTSDK.iml" filepath="$PROJECT_DIR$/GDTSDK/GDTSDK.iml" group="六十四卦查询/GDTSDK" />
+      <module fileurl="file://$PROJECT_DIR$/alipaySdk-15.6.5-20190718211148/alipaySdk-15.6.5-20190718211148.iml" filepath="$PROJECT_DIR$/alipaySdk-15.6.5-20190718211148/alipaySdk-15.6.5-20190718211148.iml" group="六十四卦查询/alipaySdk-15.6.5-20190718211148" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="六十四卦查询/app" />
+      <module fileurl="file://$PROJECT_DIR$/paysdk-release-1.2.5/paysdk-release-1.2.5.iml" filepath="$PROJECT_DIR$/paysdk-release-1.2.5/paysdk-release-1.2.5.iml" group="六十四卦查询/paysdk-release-1.2.5" />
+      <module fileurl="file://$PROJECT_DIR$/六十四卦查询.iml" filepath="$PROJECT_DIR$/六十四卦查询.iml" group="六十四卦查询" />
+    </modules>
+  </component>
+</project>

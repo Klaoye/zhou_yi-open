@@ -49,7 +49,6 @@ public class TableActivity extends AppCompatActivity {
     Intent HelpActivity;
     Intent CalendarActivity;
     String[] menu_id;//菜单列表
-    HashMap<Integer, Integer> voiceID = new HashMap<Integer, Integer>();//音频池列表
     boolean play_music;//是否播放音乐
     boolean music_setting;//音乐是否有初始设置
     boolean play_sounds;//是否播放音效
@@ -74,6 +73,10 @@ public class TableActivity extends AppCompatActivity {
         setContentView(R.layout.activity_table);
 
         Global global = new Global();
+        Global.PayThread payThread = new Global.PayThread();
+
+        payThread.run(TableActivity.this);
+
 
         //实例化Intent
         SettingsActivity = new Intent(TableActivity.this, SettingsActivity.class);

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: artifacts:paysdk-release-1.2.5:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/paysdk-release-1.2.5/build/.transforms/a98bda006fc2e45936901e2b5d14781e/jetified-paysdk-release-1.2.5/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/paysdk-release-1.2.5/build/.transforms/a98bda006fc2e45936901e2b5d14781e/jetified-paysdk-release-1.2.5/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
