@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">六十四卦查询</string>
     <string name="developer_information">开发信息：\n 开发团队：慧眼团队 \n 成员：\n 1.叶新宇 \n 2.钱嘉俊 \n 3.董梦媛</string>
+    <string name="donate_information">本团队开发此软件是为了帮助更多人去学习《周易》，拾起被中华民族所遗忘的文化。\n我们一直在坚持改善产品，但工欲善其事，必先利其器。
+            软件开发和运营需要大量的物力财力，我们希望您能点击下方的捐助帮助我们。这是一件完全自愿的事情，您不必担心。</string>
     <string name="error">出现错误，请检查输入是否正确或联系开发者。</string>
     <string name="search">检索</string>
     <string name="gua_drawable">知卦象不知其意</string>
@@ -43,6 +45,8 @@
 
     <string name="building">建设中……</string>
     <string name="donate">捐赠</string>
+    <string name="thank_donate">感谢您的捐赠。有您，我们会变得更好。</string>
+    <string name="suggestion">如果您有意见或建议请发至邮箱klaoye@163.com\n</string>
 
 
 </resources>

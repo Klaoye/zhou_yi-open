@@ -8,6 +8,7 @@ import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
+import android.widget.Toast;
 
 import com.base.bj.paysdk.domain.TrPayResult;
 import com.base.bj.paysdk.listener.PayResultListener;
@@ -53,7 +54,7 @@ public class Global extends Intent {
         SharedPreferences settings;
         SharedPreferences.Editor editor;
 
-        public void run(Activity activity) {
+        public void run(final Activity activity) {
 
             TrPay.getInstance(activity).initPaySdk(APPKEY, "donate");
             settings = activity.getSharedPreferences("data", MODE_PRIVATE);
@@ -66,10 +67,9 @@ public class Global extends Intent {
                         public void onPayFinish(Context context, String s, int i, String s1, int i1, Long aLong, String s2) {
                             if (i == TrPayResult.RESULT_CODE_SUCC.getId()) {
                                 editor.putBoolean("is_donated", true).apply();
-
+                                Toast.makeText(activity, R.string.thank_donate, Toast.LENGTH_LONG).show();
                             } else if (i == TrPayResult.RESULT_CODE_FAIL.getId()) {
                                 editor.putBoolean("is_donated", false).apply();
-
                             }
                         }
                     });

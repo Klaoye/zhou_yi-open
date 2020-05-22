@@ -73,7 +73,7 @@ public class TableActivity extends AppCompatActivity {
         setContentView(R.layout.activity_table);
 
         Global global = new Global();
-        Global.PayThread payThread = new Global.PayThread();
+        final Global.PayThread payThread = new Global.PayThread();
 
         payThread.run(TableActivity.this);
 
@@ -827,11 +827,17 @@ public class TableActivity extends AppCompatActivity {
         about_alertDialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.company)
                 .setIcon(R.drawable.company)
-                .setMessage(R.string.developer_information)
+                .setMessage(getString(R.string.developer_information) + getString(R.string.suggestion) + getString(R.string.donate_information))
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
+                    }
+                })
+                .setNegativeButton(R.string.donate, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        payThread.start();
                     }
                 })
                 .create();
@@ -887,7 +893,8 @@ public class TableActivity extends AppCompatActivity {
                 startActivity(NoteActivity);
                 break;
             case 4:
-                startActivity(CalendarActivity);
+                Toast.makeText(TableActivity.this, R.string.building, Toast.LENGTH_SHORT).show();
+                //startActivity(CalendarActivity);
                 break;
             default:
                 Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
@@ -896,7 +903,7 @@ public class TableActivity extends AppCompatActivity {
 
         }
         Toast.makeText(TableActivity.this,
-                String.format(getResources().getString(R.string.click), menu_id[item.getItemId()]),
+                String.format(getString(R.string.click), menu_id[item.getItemId()]),
                 Toast.LENGTH_SHORT).show();
         if (play_sounds) {
             soundPool_table.play(1, 1, 1, 1, 0, 1);

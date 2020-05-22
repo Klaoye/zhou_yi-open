@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">ZhouYi(Chinese practise divination)</string>
     <string name="developer_information">Development Information: \n Development Team: Clever Eye team \n Members: \n 1. Ye Xinyu \n 2. Qian Jiajun \n 3. Dong Mengyuan</string>
+    <string name="donate_information">The team developed this software to help more people learn "Book of Changes" and pick up the culture forgotten by the Chinese nation. We have been insisting on improving the product, but if the worker wants to do his best, he must first sharpen his weapon.
+             Software development and operation requires a lot of material and financial resources, and we hope you can help us by clicking the donation below. This is a completely voluntary matter and you need not worry.</string>
     <string name="error">An error occurred. Please check the input or contact the developer.</string>
     <string name="search">Search</string>
     <string name="gua_drawable">Knowing the image of divination, not knowing its meaning.</string>
@@ -43,4 +45,6 @@ If you have any questions or suggestions, your feedback is always welcome. I hop
 </string>
     <string name="building">building……</string>
     <string name="donate">Donate</string>
+    <string name="thank_donate">Thank you for your donation. With you, we will get better.</string>
+    <string name="suggestion">If you have comments or suggestions, please email to klaoye@163.com\n</string>
 </resources>
