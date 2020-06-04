@@ -73,10 +73,6 @@ public class TableActivity extends AppCompatActivity {
         setContentView(R.layout.activity_table);
 
         Global global = new Global();
-        final Global.PayThread payThread = new Global.PayThread();
-
-        payThread.run(TableActivity.this);
-
 
         //实例化Intent
         SettingsActivity = new Intent(TableActivity.this, SettingsActivity.class);
@@ -266,542 +262,14 @@ public class TableActivity extends AppCompatActivity {
                     //通过以下操作实现“选八卦得出六十四卦”
                     int position_max = up_gua_min_id * 8 + dn_gua_min_id;//六十四卦
                     spinner_gua_max.setSelection(position_max);//设置默认值
-                    switch (up_gua_min_id) {
-                        case 0:
-                            switch (dn_gua_min_id) {
-                                case 0:
-                                    SearchTextView.setText(R.string.qian1);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.lv);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.tong_ren);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.wu_wang);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.gou);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.song);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.dun);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.fou);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 1:
-                            switch (dn_gua_min_id) {
-                                case 0:
-                                    SearchTextView.setText(R.string.guai);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.dui);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.ge);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.sui);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.da_guo);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.kun47);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.xian);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.cui);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 2:
-                            switch (dn_gua_min_id) {
-                                case 0:
-                                    SearchTextView.setText(R.string.da_you);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.kui);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.li);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.shi_ke);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.ding);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.wei_ji);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.lv56);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.jin);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 3:
-                            switch (dn_gua_min_id) {
-                                case 0:
-                                    SearchTextView.setText(R.string.da_zhuang);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.gui_mei);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.feng);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.zhen);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.heng);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.jie40);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.xiao_guo);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.yu);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 4:
-                            switch (dn_gua_min_id) {
-                                case 0:
-                                    SearchTextView.setText(R.string.xiao_xu);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.zhong_fu);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.jia_ren);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.yi42);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.xun);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.huan);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.jian53);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.guan);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 5:
-                            switch (dn_gua_min_id) {
-                                case 0:
-                                    SearchTextView.setText(R.string.xv);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.jie60);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.ji_ji);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.zhun);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.jing);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.kan);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.jian39);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.bi);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 6:
-                            switch (dn_gua_min_id) {
-                                case 0:
-                                    SearchTextView.setText(R.string.da_xu);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.sun);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.ben);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.yi27);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.gu);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.meng);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.gen);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.bo);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 7:
-                            switch (dn_gua_min_id) {
-                                case 0:
-                                    SearchTextView.setText(R.string.tai);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.lin);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.ming_yi);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.fu);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.shen);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.shi);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.qian15);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.kun2);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-
-
-                        default:
-                            Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                            SearchTextView.setText("");
-                            break;
-
-                    }
+                    FindGua(up_gua_min_id, dn_gua_min_id);
                 } else {//搜索模式
                     //通过以下操作实现“选六十四卦得出八卦”
                     int position_up = gua_max_id / 8;//上卦
                     int position_dn = gua_max_id % 8;//下卦
                     spinner_gua_min_up.setSelection(position_up);//设置默认值
                     spinner_gua_min_dn.setSelection(position_dn);
-                    switch (position_up) {
-                        case 0:
-                            switch (position_dn) {
-                                case 0:
-                                    SearchTextView.setText(R.string.qian1);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.lv);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.tong_ren);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.wu_wang);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.gou);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.song);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.dun);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.fou);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 1:
-                            switch (position_dn) {
-                                case 0:
-                                    SearchTextView.setText(R.string.guai);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.dui);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.ge);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.sui);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.da_guo);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.kun47);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.xian);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.cui);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 2:
-                            switch (position_dn) {
-                                case 0:
-                                    SearchTextView.setText(R.string.da_you);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.kui);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.li);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.shi_ke);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.ding);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.wei_ji);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.lv56);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.jin);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 3:
-                            switch (position_dn) {
-                                case 0:
-                                    SearchTextView.setText(R.string.da_zhuang);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.gui_mei);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.feng);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.zhen);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.heng);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.jie40);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.xiao_guo);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.yu);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 4:
-                            switch (position_dn) {
-                                case 0:
-                                    SearchTextView.setText(R.string.xiao_xu);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.zhong_fu);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.jia_ren);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.yi42);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.xun);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.huan);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.jian53);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.guan);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 5:
-                            switch (position_dn) {
-                                case 0:
-                                    SearchTextView.setText(R.string.xv);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.jie60);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.ji_ji);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.zhun);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.jing);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.kan);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.jian39);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.bi);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 6:
-                            switch (position_dn) {
-                                case 0:
-                                    SearchTextView.setText(R.string.da_xu);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.sun);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.ben);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.yi27);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.gu);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.meng);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.gen);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.bo);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-                        case 7:
-                            switch (position_dn) {
-                                case 0:
-                                    SearchTextView.setText(R.string.tai);
-                                    break;
-                                case 1:
-                                    SearchTextView.setText(R.string.lin);
-                                    break;
-                                case 2:
-                                    SearchTextView.setText(R.string.ming_yi);
-                                    break;
-                                case 3:
-                                    SearchTextView.setText(R.string.fu);
-                                    break;
-                                case 4:
-                                    SearchTextView.setText(R.string.shen);
-                                    break;
-                                case 5:
-                                    SearchTextView.setText(R.string.shi);
-                                    break;
-                                case 6:
-                                    SearchTextView.setText(R.string.qian15);
-                                    break;
-                                case 7:
-                                    SearchTextView.setText(R.string.kun2);
-                                    break;
-                                default:
-                                    Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                                    SearchTextView.setText("");
-                                    break;
-                            }
-                            break;
-
-
-                        default:
-                            Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                            SearchTextView.setText("");
-                            break;
-
-                    }
+                    FindGua(position_up, position_dn);
                 }
                 //修改字体
                 SearchTextView.setTypeface(typefaceKAI);
@@ -837,7 +305,7 @@ public class TableActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.donate, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        payThread.start();
+
                     }
                 })
                 .create();
@@ -967,6 +435,275 @@ public class TableActivity extends AppCompatActivity {
         } else {
             System.exit(0);
             System.out.println("application 完全退出");
+        }
+    }
+
+    //卦象逻辑
+    protected void FindGua(int up_gua_min_id, int dn_gua_min_id) {
+        switch (up_gua_min_id) {
+            case 0:
+                switch (dn_gua_min_id) {
+                    case 0:
+                        SearchTextView.setText(R.string.qian1);
+                        break;
+                    case 1:
+                        SearchTextView.setText(R.string.lv);
+                        break;
+                    case 2:
+                        SearchTextView.setText(R.string.tong_ren);
+                        break;
+                    case 3:
+                        SearchTextView.setText(R.string.wu_wang);
+                        break;
+                    case 4:
+                        SearchTextView.setText(R.string.gou);
+                        break;
+                    case 5:
+                        SearchTextView.setText(R.string.song);
+                        break;
+                    case 6:
+                        SearchTextView.setText(R.string.dun);
+                        break;
+                    case 7:
+                        SearchTextView.setText(R.string.fou);
+                        break;
+                    default:
+                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
+                        SearchTextView.setText("");
+                        break;
+                }
+                break;
+            case 1:
+                switch (dn_gua_min_id) {
+                    case 0:
+                        SearchTextView.setText(R.string.guai);
+                        break;
+                    case 1:
+                        SearchTextView.setText(R.string.dui);
+                        break;
+                    case 2:
+                        SearchTextView.setText(R.string.ge);
+                        break;
+                    case 3:
+                        SearchTextView.setText(R.string.sui);
+                        break;
+                    case 4:
+                        SearchTextView.setText(R.string.da_guo);
+                        break;
+                    case 5:
+                        SearchTextView.setText(R.string.kun47);
+                        break;
+                    case 6:
+                        SearchTextView.setText(R.string.xian);
+                        break;
+                    case 7:
+                        SearchTextView.setText(R.string.cui);
+                        break;
+                    default:
+                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
+                        SearchTextView.setText("");
+                        break;
+                }
+                break;
+            case 2:
+                switch (dn_gua_min_id) {
+                    case 0:
+                        SearchTextView.setText(R.string.da_you);
+                        break;
+                    case 1:
+                        SearchTextView.setText(R.string.kui);
+                        break;
+                    case 2:
+                        SearchTextView.setText(R.string.li);
+                        break;
+                    case 3:
+                        SearchTextView.setText(R.string.shi_ke);
+                        break;
+                    case 4:
+                        SearchTextView.setText(R.string.ding);
+                        break;
+                    case 5:
+                        SearchTextView.setText(R.string.wei_ji);
+                        break;
+                    case 6:
+                        SearchTextView.setText(R.string.lv56);
+                        break;
+                    case 7:
+                        SearchTextView.setText(R.string.jin);
+                        break;
+                    default:
+                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
+                        SearchTextView.setText("");
+                        break;
+                }
+                break;
+            case 3:
+                switch (dn_gua_min_id) {
+                    case 0:
+                        SearchTextView.setText(R.string.da_zhuang);
+                        break;
+                    case 1:
+                        SearchTextView.setText(R.string.gui_mei);
+                        break;
+                    case 2:
+                        SearchTextView.setText(R.string.feng);
+                        break;
+                    case 3:
+                        SearchTextView.setText(R.string.zhen);
+                        break;
+                    case 4:
+                        SearchTextView.setText(R.string.heng);
+                        break;
+                    case 5:
+                        SearchTextView.setText(R.string.jie40);
+                        break;
+                    case 6:
+                        SearchTextView.setText(R.string.xiao_guo);
+                        break;
+                    case 7:
+                        SearchTextView.setText(R.string.yu);
+                        break;
+                    default:
+                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
+                        SearchTextView.setText("");
+                        break;
+                }
+                break;
+            case 4:
+                switch (dn_gua_min_id) {
+                    case 0:
+                        SearchTextView.setText(R.string.xiao_xu);
+                        break;
+                    case 1:
+                        SearchTextView.setText(R.string.zhong_fu);
+                        break;
+                    case 2:
+                        SearchTextView.setText(R.string.jia_ren);
+                        break;
+                    case 3:
+                        SearchTextView.setText(R.string.yi42);
+                        break;
+                    case 4:
+                        SearchTextView.setText(R.string.xun);
+                        break;
+                    case 5:
+                        SearchTextView.setText(R.string.huan);
+                        break;
+                    case 6:
+                        SearchTextView.setText(R.string.jian53);
+                        break;
+                    case 7:
+                        SearchTextView.setText(R.string.guan);
+                        break;
+                    default:
+                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
+                        SearchTextView.setText("");
+                        break;
+                }
+                break;
+            case 5:
+                switch (dn_gua_min_id) {
+                    case 0:
+                        SearchTextView.setText(R.string.xv);
+                        break;
+                    case 1:
+                        SearchTextView.setText(R.string.jie60);
+                        break;
+                    case 2:
+                        SearchTextView.setText(R.string.ji_ji);
+                        break;
+                    case 3:
+                        SearchTextView.setText(R.string.zhun);
+                        break;
+                    case 4:
+                        SearchTextView.setText(R.string.jing);
+                        break;
+                    case 5:
+                        SearchTextView.setText(R.string.kan);
+                        break;
+                    case 6:
+                        SearchTextView.setText(R.string.jian39);
+                        break;
+                    case 7:
+                        SearchTextView.setText(R.string.bi);
+                        break;
+                    default:
+                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
+                        SearchTextView.setText("");
+                        break;
+                }
+                break;
+            case 6:
+                switch (dn_gua_min_id) {
+                    case 0:
+                        SearchTextView.setText(R.string.da_xu);
+                        break;
+                    case 1:
+                        SearchTextView.setText(R.string.sun);
+                        break;
+                    case 2:
+                        SearchTextView.setText(R.string.ben);
+                        break;
+                    case 3:
+                        SearchTextView.setText(R.string.yi27);
+                        break;
+                    case 4:
+                        SearchTextView.setText(R.string.gu);
+                        break;
+                    case 5:
+                        SearchTextView.setText(R.string.meng);
+                        break;
+                    case 6:
+                        SearchTextView.setText(R.string.gen);
+                        break;
+                    case 7:
+                        SearchTextView.setText(R.string.bo);
+                        break;
+                    default:
+                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
+                        SearchTextView.setText("");
+                        break;
+                }
+                break;
+            case 7:
+                switch (dn_gua_min_id) {
+                    case 0:
+                        SearchTextView.setText(R.string.tai);
+                        break;
+                    case 1:
+                        SearchTextView.setText(R.string.lin);
+                        break;
+                    case 2:
+                        SearchTextView.setText(R.string.ming_yi);
+                        break;
+                    case 3:
+                        SearchTextView.setText(R.string.fu);
+                        break;
+                    case 4:
+                        SearchTextView.setText(R.string.shen);
+                        break;
+                    case 5:
+                        SearchTextView.setText(R.string.shi);
+                        break;
+                    case 6:
+                        SearchTextView.setText(R.string.qian15);
+                        break;
+                    case 7:
+                        SearchTextView.setText(R.string.kun2);
+                        break;
+                    default:
+                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
+                        SearchTextView.setText("");
+                        break;
+                }
+                break;
+
+
+            default:
+                Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
+                SearchTextView.setText("");
+                break;
+
         }
     }
 }

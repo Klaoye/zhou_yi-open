@@ -50,9 +50,6 @@ public class NoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
 
-        final Global.PayThread payThread = new Global.PayThread();
-        payThread.run(NoteActivity.this);
-
         SharedPreferences settings = getSharedPreferences("data", MODE_PRIVATE);
 
         AlertDialog donateDialog = new AlertDialog.Builder(NoteActivity.this)
@@ -61,7 +58,7 @@ public class NoteActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.donate, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        payThread.start();
+
                     }
                 })
                 .setNegativeButton(R.string.cancel, null)

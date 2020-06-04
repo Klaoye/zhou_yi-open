@@ -16,9 +16,9 @@ import com.base.bj.paysdk.utils.TrPay;
 
 import java.util.HashMap;
 
-import static android.content.Context.MODE_PRIVATE;
-
 public class Global extends Intent {
+
+    final String APP_KEY = "45a9d41f49e546b487ba2486e10cb105";
 
     //音效方法
     protected SoundPool MySoundPool(Context context) {
@@ -47,33 +47,21 @@ public class Global extends Intent {
         return soundPool_table;
     }
 
+    protected void PayThread(final Activity activity, final SharedPreferences.Editor editor) {
+        TrPay trPay = TrPay.getInstance(activity);
+        trPay.initPaySdk(APP_KEY, "donate");
 
-    protected static class PayThread extends Thread {
-
-        final String APPKEY = "45a9d41f49e546b487ba2486e10cb105";
-        SharedPreferences settings;
-        SharedPreferences.Editor editor;
-
-        public void run(final Activity activity) {
-
-            TrPay.getInstance(activity).initPaySdk(APPKEY, "donate");
-            settings = activity.getSharedPreferences("data", MODE_PRIVATE);
-            editor = settings.edit();
-
-            TrPay.getInstance(activity).callAlipay("donate", "donate1", (long) 200,
-                    "PayError", null, "klaoye@163.com",
-                    new PayResultListener() {
-                        @Override
-                        public void onPayFinish(Context context, String s, int i, String s1, int i1, Long aLong, String s2) {
-                            if (i == TrPayResult.RESULT_CODE_SUCC.getId()) {
-                                editor.putBoolean("is_donated", true).apply();
-                                Toast.makeText(activity, R.string.thank_donate, Toast.LENGTH_LONG).show();
-                            } else if (i == TrPayResult.RESULT_CODE_FAIL.getId()) {
-                                editor.putBoolean("is_donated", false).apply();
-                            }
-                        }
-                    });
-        }
+        trPay.callPay("donate", "d001", (long) 200, null, null, "klaoye@163.com", new PayResultListener() {
+            @Override
+            public void onPayFinish(Context context, String s, int i, String s1, int i1, Long aLong, String s2) {
+                if (i == TrPayResult.RESULT_CODE_SUCC.getId()) {
+                    editor.putBoolean("donated", true).apply();
+                    Toast.makeText(activity, R.string.thank_donate, Toast.LENGTH_LONG).show();
+                } else if (i == TrPayResult.RESULT_CODE_FAIL.getId()) {
+                    editor.putBoolean("donated", false).apply();
+                }
+            }
+        });
     }
 
 }

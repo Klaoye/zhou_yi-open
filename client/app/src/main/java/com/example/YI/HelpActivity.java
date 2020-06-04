@@ -34,7 +34,7 @@ public class HelpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
-        Global global = new Global();
+        //Global global = new Global();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
@@ -105,13 +105,13 @@ public class HelpActivity extends AppCompatActivity {
     }
 
     protected AlertDialog funAlertDialog(String TittleStr, final String message) {
-        AlertDialog.Builder ADbuilder = new AlertDialog.Builder(HelpActivity.this);
+        AlertDialog.Builder ADBuilder = new AlertDialog.Builder(HelpActivity.this);
         AlertDialog alertDialog;
         View view = getLayoutInflater().inflate(R.layout.universal_text_view, null);
         TextView textView = view.findViewById(R.id.universal_textView);
         textView.setText(message);
         textView.setTextIsSelectable(true);
-        ADbuilder.setIcon(R.mipmap.ic_launcher)
+        ADBuilder.setIcon(R.mipmap.ic_launcher)
                 .setTitle(TittleStr)
                 .setView(view)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
@@ -120,7 +120,7 @@ public class HelpActivity extends AppCompatActivity {
 
                     }
                 });
-        alertDialog = ADbuilder.create();
+        alertDialog = ADBuilder.create();
 
         System.out.println("help AlertDialog" + TittleStr + " 输出");
         return alertDialog;
