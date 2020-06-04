@@ -261,7 +261,7 @@ public class TableActivity extends AppCompatActivity {
                 if (!model) {//检索模式
                     //通过以下操作实现“选八卦得出六十四卦”
                     int position_max = up_gua_min_id * 8 + dn_gua_min_id;//六十四卦
-                    spinner_gua_max.setSelection(position_max);//设置默认值
+                    spinner_gua_max.setSelection(position_max);//跳转卦名
                     FindGua(up_gua_min_id, dn_gua_min_id);
                 } else {//搜索模式
                     //通过以下操作实现“选六十四卦得出八卦”
