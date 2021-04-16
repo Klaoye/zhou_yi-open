@@ -1,27 +1,18 @@
 package com.example.YI;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
-import android.widget.Toast;
-
-import com.base.bj.paysdk.domain.TrPayResult;
-import com.base.bj.paysdk.listener.PayResultListener;
-import com.base.bj.paysdk.utils.TrPay;
 
 import java.util.HashMap;
 
-public class Global extends Intent {
-
-    final String APP_KEY = "45a9d41f49e546b487ba2486e10cb105";
+public class Global {
 
     //音效方法
-    protected SoundPool MySoundPool(Context context) {
+    protected static SoundPool MySoundPool(Context context) {
         HashMap<Integer, Integer> voiceID = new HashMap<Integer, Integer>();//音频池列表
         SoundPool soundPool_table;//音频池
         SoundPool.Builder builder_soundPool_table;//音频池构建器
@@ -45,23 +36,6 @@ public class Global extends Intent {
         voiceID.put(4, soundPool_table.load(context, R.raw.guqin2, 1));
 
         return soundPool_table;
-    }
-
-    protected void PayThread(final Activity activity, final SharedPreferences.Editor editor) {
-        TrPay trPay = TrPay.getInstance(activity);
-        trPay.initPaySdk(APP_KEY, "donate");
-
-        trPay.callPay("donate", "d001", (long) 200, null, null, "klaoye@163.com", new PayResultListener() {
-            @Override
-            public void onPayFinish(Context context, String s, int i, String s1, int i1, Long aLong, String s2) {
-                if (i == TrPayResult.RESULT_CODE_SUCC.getId()) {
-                    editor.putBoolean("donated", true).apply();
-                    Toast.makeText(activity, R.string.thank_donate, Toast.LENGTH_LONG).show();
-                } else if (i == TrPayResult.RESULT_CODE_FAIL.getId()) {
-                    editor.putBoolean("donated", false).apply();
-                }
-            }
-        });
     }
 
 }

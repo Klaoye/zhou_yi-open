@@ -72,8 +72,6 @@ public class TableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table);
 
-        Global global = new Global();
-
         //实例化Intent
         SettingsActivity = new Intent(TableActivity.this, SettingsActivity.class);
         MusicService = new Intent(TableActivity.this, MusicService.class);
@@ -83,7 +81,7 @@ public class TableActivity extends AppCompatActivity {
 
         menu_id = getResources().getStringArray(R.array.table_menu);//菜单列表数组
 
-        soundPool_table = global.MySoundPool(TableActivity.this);
+        soundPool_table = Global.MySoundPool(TableActivity.this);
 
         settings = getSharedPreferences("data", MODE_PRIVATE);//获取名为data的共享存储库，仅限本软件修改和读取
         editor = settings.edit();//共享存储库实例化

@@ -30,15 +30,9 @@ public class MainActivity extends Activity {
         GifImageView GifIA1 = findViewById(R.id.GIFA1);
         GifDrawable GifDA1 = (GifDrawable) GifIA1.getDrawable();
         GifDA1.start();
-
         //延迟计时模块
         Handler mHandler = new Handler();
-        Runnable mRunnable = new Runnable() {
-            @Override
-            public void run() {
-                finish();
-            }
-        };
+        Runnable mRunnable = this::finish;
         mHandler.postDelayed(mRunnable, 3000);
 
         Table = new Intent(MainActivity.this, TableActivity.class);

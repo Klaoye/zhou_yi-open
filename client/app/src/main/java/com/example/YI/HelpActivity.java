@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,37 +52,31 @@ public class HelpActivity extends AppCompatActivity {
                 .setTitle(string[1])
                 .setIcon(R.mipmap.ic_launcher)
                 .setView(gifView)
-                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        HGD.stop();
-                        HGD.reset();
-                    }
+                .setPositiveButton(R.string.ok, (dialog, which) -> {
+                    HGD.stop();
+                    HGD.reset();
                 })
                 .create();
 
 
-        HelpList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        ReadZhouYiAlertDialog = funAlertDialog(string[position], getString(R.string.hou_to_read));
-                        ReadZhouYiAlertDialog.show();
-                        break;
-                    case 1:
-                        HelpAlertDialog.show();
-                        HGD.start();
-                        HGD.reset();
-                        break;
-                    case 2:
+        HelpList.setOnItemClickListener((parent, view, position, id) -> {
+            switch (position) {
+                case 0:
+                    ReadZhouYiAlertDialog = funAlertDialog(string[position], getString(R.string.hou_to_read));
+                    ReadZhouYiAlertDialog.show();
+                    break;
+                case 1:
+                    HelpAlertDialog.show();
+                    HGD.start();
+                    HGD.reset();
+                    break;
+                case 2:
 
-                    case 3:
-                        Toast.makeText(HelpActivity.this, R.string.building, Toast.LENGTH_SHORT).show();
-                        break;
-                    default:
-                        break;
-                }
+                case 3:
+                    Toast.makeText(HelpActivity.this, R.string.building, Toast.LENGTH_SHORT).show();
+                    break;
+                default:
+                    break;
             }
         });
 

@@ -34,6 +34,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
 public class NoteActivity extends AppCompatActivity {
@@ -52,18 +53,17 @@ public class NoteActivity extends AppCompatActivity {
 
         SharedPreferences settings = getSharedPreferences("data", MODE_PRIVATE);
 
+        /*
         AlertDialog donateDialog = new AlertDialog.Builder(NoteActivity.this)
                 .setTitle(R.string.donate)
                 .setMessage(R.string.donate_information)
-                .setPositiveButton(R.string.donate, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                .setPositiveButton(R.string.donate, (dialog, which) -> {
 
-                    }
                 })
                 .setNegativeButton(R.string.cancel, null)
                 .create();
         if (!settings.getBoolean("is_donated", false)) donateDialog.show();
+        */
 
         addButton = findViewById(R.id.add_Button);
         noteListView = findViewById(R.id.list_note);
@@ -87,49 +87,29 @@ public class NoteActivity extends AppCompatActivity {
         inputAlertDialog = new AlertDialog.Builder(NoteActivity.this)
                 .setTitle(R.string.new_text)
                 .setView(addView)
-                .setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (!addTittleEdit.getText().toString().equals("")) {
-                            funSaveFile(addTittleEdit.getText().toString(), addTittleEdit.getText().toString(), false);
-                            addTittleEdit.setText(null);
-                            addTextEdit.setText(null);
-                            noteListView.invalidate();
-                            finish();
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(NoteActivity.this, R.string.cant_null, Toast.LENGTH_LONG).show();
-                        }
-                    }
-                })//保存按钮
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                .setPositiveButton(R.string.save, (dialog, which) -> {
+                    if (!addTittleEdit.getText().toString().equals("")) {
+                        funSaveFile(addTittleEdit.getText().toString(), addTittleEdit.getText().toString(), false);
                         addTittleEdit.setText(null);
                         addTextEdit.setText(null);
+                        noteListView.invalidate();
+                        finish();
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(NoteActivity.this, R.string.cant_null, Toast.LENGTH_LONG).show();
                     }
+                })//保存按钮
+                .setNegativeButton(R.string.cancel, (dialog, which) -> {
+                    addTittleEdit.setText(null);
+                    addTextEdit.setText(null);
                 })//取消按钮
                 .create();
 
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                inputAlertDialog.show();
-            }
-        });
-
-        noteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                funAlertDialog(funNoteList()[position], funReadFile(funNoteList()[position])).show();
-            }
-        });
-        noteListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-                funOperationDialog(funNoteList()[position]).show();
-                return true;
-            }
+        addButton.setOnClickListener((View v) ->inputAlertDialog.show());
+        noteListView.setOnItemClickListener((parent, view, position, id) -> funAlertDialog(funNoteList()[position], funReadFile(funNoteList()[position])).show());
+        noteListView.setOnItemLongClickListener((parent, view, position, id) -> {
+            funOperationDialog(funNoteList()[position]).show();
+            return true;
         });
 
     }
@@ -142,22 +122,19 @@ public class NoteActivity extends AppCompatActivity {
         final EditText tittle_editor = view.findViewById(R.id.note_editText_title);
         final EditText text_editor = view.findViewById(R.id.note_editText_text);
         tittle_editor.setText(fileName);
-        text_editor.setText(funReadFile(fileName));
+        text_editor.setText(message);
         tittle_editor.setFocusable(false);
         tittle_editor.setKeyListener(null);
         ADbuilder.setIcon(R.mipmap.ic_launcher)
                 .setView(view)
-                .setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (tittle_editor.getText().toString() != null) {
-                            funSaveFile(tittle_editor.getText().toString(), text_editor.getText().toString(), false);
-                            System.out.println("note AlertDialog" + fileName + " 已输出");
-                        } else {
-                            Toast.makeText(NoteActivity.this, R.string.cant_null, Toast.LENGTH_LONG).show();
-                        }
-
+                .setPositiveButton(R.string.save, (dialog, which) -> {
+                    if (tittle_editor.getText().toString() != null) {
+                        funSaveFile(tittle_editor.getText().toString(), text_editor.getText().toString(), false);
+                        System.out.println("note AlertDialog" + fileName + " 已输出");
+                    } else {
+                        Toast.makeText(NoteActivity.this, R.string.cant_null, Toast.LENGTH_LONG).show();
                     }
+
                 })
                 .setNegativeButton(R.string.cancel, null)
                 .setNeutralButton(R.string.delete, new DialogInterface.OnClickListener() {
@@ -193,13 +170,6 @@ public class NoteActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 })
-                /*   .setNeutralButton(R.string.out_put, new DialogInterface.OnClickListener() {
-                           @Override
-                           public void onClick(DialogInterface dialog, int which) {
-                               funOutBrowse();
-                               funOutSave(fileName);
-                           }
-                   })   */
                 .setNegativeButton(R.string.cancel, null)
                 .create();
         alertDialog = builder.create();
@@ -207,12 +177,11 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     //将笔记文件写入 方法
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     protected void funSaveFile(String fileName, String message, boolean isOut) {
         File file;
         if (isOut) {//如果存储到外部
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                checkPermission();
-            }
+            checkPermission();
             file = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/", fileName + ".txt");
         } else {
             file = new File(getFilesDir() + "/NoteData/" + fileName + ".txt");
@@ -221,7 +190,7 @@ public class NoteActivity extends AppCompatActivity {
         try {
             file.createNewFile();
             FileOutputStream outputStream = new FileOutputStream(file);
-            outputStream.write(message.getBytes());
+            outputStream.write(message.getBytes(StandardCharsets.UTF_8));
             outputStream.close();
             Log.i("file save", "TXT文件：“" + fileName + "”存储/导出成功" + file);
             if (isOut)
@@ -319,8 +288,11 @@ public class NoteActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void checkPermission() {
         int targetSdkVersion = 0;
-        String[] PermissionString = {Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS};
+        String[] PermissionString = {
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS
+        };
         try {
             final PackageInfo info = this.getPackageManager().getPackageInfo(this.getPackageName(), 0);
             targetSdkVersion = info.applicationInfo.targetSdkVersion;//获取应用的Target版本
