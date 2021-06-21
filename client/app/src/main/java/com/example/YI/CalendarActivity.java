@@ -1,3 +1,8 @@
+/**
+ * @author klaoye
+ * @since jdk 1.8
+ * 黄历查询活动
+ */
 package com.example.YI;
 
 import android.app.DatePickerDialog;

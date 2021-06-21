@@ -119,7 +119,7 @@ public class TableActivity extends AppCompatActivity {
 
         modelSwitch = findViewById(R.id.switch_model);
         model = false;//模式初始值
-        typefaceKAI = Typeface.createFromAsset(getAssets(), "fonts/kai.ttf");//注册字体
+        typefaceKAI = Typeface.createFromAsset(getAssets(), "fonts/PangKai.ttf");//注册字体
 
         //********列表带图片***********
         spinner_gua_min_up = findViewById(R.id.spinner_gua_min_up);//上卦

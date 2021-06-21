@@ -1,3 +1,8 @@
+/**
+ * @author klaoye
+ * @since jdk 1.8
+ * 背景音乐服务
+ */
 package com.example.YI;
 
 import android.annotation.SuppressLint;
@@ -36,6 +41,7 @@ public class MusicService extends Service {
         }
         return super.onStartCommand(intent, flags, startId);
     }
+
 
     @Override
     public void onDestroy() {

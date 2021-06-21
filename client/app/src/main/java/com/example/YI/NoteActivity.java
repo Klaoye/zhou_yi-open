@@ -1,3 +1,7 @@
+/**
+ * @author klaoye
+ * @since jdk 1.8
+ */
 package com.example.YI;
 
 import android.Manifest;
@@ -38,7 +42,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
 public class NoteActivity extends AppCompatActivity {
-    AlertDialog inputAlertDialog;//新建文本对话框
+    AlertDialog inputAlertDialog;
     Button addButton;//新建文本悬浮按钮
     View addView;//新建文本视图
     EditText addTittleEdit, addTextEdit;//新建标题，文本
@@ -114,7 +118,11 @@ public class NoteActivity extends AppCompatActivity {
 
     }
 
-    //显示 笔记 弹窗方法
+    /**
+     * @param fileName 创建文件名 .
+     * @param message  文件内容 .
+     * 显示 笔记 弹窗方法
+     */
     protected AlertDialog funAlertDialog(final String fileName, String message) {
         AlertDialog.Builder ADbuilder = new AlertDialog.Builder(NoteActivity.this);
         AlertDialog alertDialog;
@@ -157,7 +165,11 @@ public class NoteActivity extends AppCompatActivity {
         return alertDialog;
     }
 
-    //列表长按弹窗 方法
+    /**
+     * @param fileName 创建文件名 .
+     * @return AlertDialog 返回一个含有内容的弹窗（可编辑） .
+     *列表长按弹窗 方法
+     */
     protected AlertDialog funOperationDialog(final String fileName) {
         AlertDialog alertDialog;
         final AlertDialog.Builder builder = new AlertDialog.Builder(NoteActivity.this);
@@ -176,7 +188,13 @@ public class NoteActivity extends AppCompatActivity {
         return alertDialog;
     }
 
-    //将笔记文件写入 方法
+
+    /**
+     * @param fileName 创建文件名 .
+     * @param message 文件内容 .
+     *@param isOut 是否输出到外置存储 .
+     *将笔记文件写入 方法
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     protected void funSaveFile(String fileName, String message, boolean isOut) {
         File file;
@@ -214,7 +232,12 @@ public class NoteActivity extends AppCompatActivity {
         }
     }
 
-    //读取内部笔记 方法
+    /**
+     * @param fileName .内部的TXT文件
+     * @return String 文件内容
+     *读取内部笔记 方法
+     */
+
     protected String funReadFile(String fileName) {
         String outString;
         File filePath = new File(getFilesDir() + "/NoteData/" + fileName + ".txt");
@@ -237,14 +260,19 @@ public class NoteActivity extends AppCompatActivity {
         return outString;
     }
 
-    //删除 方法
+    /**@param fileName .内部的TXT文件*/
+    /**删除 方法*/
     protected void funDeleteFile(String fileName) {
         File file = new File(getFilesDir() + "/NoteData/" + fileName + ".txt");
         file.delete();
     }
 
 
-    //遍历文件 方法
+    /**
+     *遍历文件 方法
+     * @return String[] 遍历内部存储的TXT文件名
+     */
+
     protected String[] funNoteList() {
         File filePath = new File(getFilesDir() + "/NoteData/");
         String fileName;

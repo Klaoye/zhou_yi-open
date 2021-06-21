@@ -1,7 +1,10 @@
+/**
+ * @author klaoye
+ * @since jdk 1.8
+ */
 package com.example.YI;
 
 import android.content.Context;
-import android.content.Intent;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -11,7 +14,7 @@ import java.util.HashMap;
 
 public class Global {
 
-    //音效方法
+    /**@param context 基于上下文调用 .*/
     protected static SoundPool MySoundPool(Context context) {
         HashMap<Integer, Integer> voiceID = new HashMap<Integer, Integer>();//音频池列表
         SoundPool soundPool_table;//音频池
