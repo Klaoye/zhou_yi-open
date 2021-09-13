@@ -10,7 +10,7 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 
-import com.klaoye.YI.R;
+import xyz.klaoye.YI.R;
 
 import java.util.HashMap;
 

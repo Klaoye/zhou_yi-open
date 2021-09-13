@@ -17,7 +17,7 @@ import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.klaoye.YI.R;
+import xyz.klaoye.YI.R;
 
 import java.util.Objects;
 

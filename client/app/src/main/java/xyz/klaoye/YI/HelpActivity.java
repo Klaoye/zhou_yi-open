@@ -18,7 +18,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.klaoye.YI.R;
+import xyz.klaoye.YI.R;
 
 import java.util.Objects;
 

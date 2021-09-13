@@ -24,7 +24,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.klaoye.YI.R;
+import xyz.klaoye.YI.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

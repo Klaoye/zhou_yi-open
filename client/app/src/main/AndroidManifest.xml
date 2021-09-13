@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.klaoye.YI"
+    package="xyz.klaoye.YI"
     tools:ignore="GoogleAppIndexingWarning">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -19,24 +19,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.klaoye.YI.xyz.klaoye.YI.MainActivity">
+        <activity android:name="xyz.klaoye.YI.MainActivity">
             <intent-filter android:scheme="http">
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.klaoye.YI.xyz.klaoye.YI.CalendarActivity" />
-        <activity android:name="com.klaoye.YI.xyz.klaoye.YI.HelpActivity" />
-        <activity android:name="com.klaoye.YI.xyz.klaoye.YI.NoteActivity">
+        <activity android:name="xyz.klaoye.YI.CalendarActivity" />
+        <activity android:name="xyz.klaoye.YI.HelpActivity" />
+        <activity android:name="xyz.klaoye.YI.NoteActivity">
 
         </activity>
-        <activity android:name="com.klaoye.YI.xyz.klaoye.YI.SettingsActivity" />
-        <activity android:name="com.klaoye.YI.xyz.klaoye.YI.TableActivity" />
+        <activity android:name="xyz.klaoye.YI.SettingsActivity" />
+        <activity android:name="xyz.klaoye.YI.TableActivity" />
 
 
         <service
-            android:name="com.klaoye.YI.xyz.klaoye.YI.MusicService"
+            android:name="xyz.klaoye.YI.MusicService"
             android:enabled="true"
             android:exported="true" />
 

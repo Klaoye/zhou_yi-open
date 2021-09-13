@@ -10,8 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
-import com.klaoye.YI.R;
-
 import java.io.File;
 
 import pl.droidsonroids.gif.GifDrawable;
