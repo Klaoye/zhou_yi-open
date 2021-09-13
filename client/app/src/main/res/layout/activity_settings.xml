@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/banboo2"
-    tools:context=".SettingsActivity">
+    tools:context="xyz.klaoye.YI.SettingsActivity">
 
     <Switch
         android:id="@+id/switch_can_copy"

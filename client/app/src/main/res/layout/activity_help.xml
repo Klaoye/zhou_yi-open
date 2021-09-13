@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/banboo2"
-    tools:context=".HelpActivity">
+    tools:context="xyz.klaoye.YI.HelpActivity">
 
     <ListView
         android:id="@+id/help_list"

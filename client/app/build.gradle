@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
 
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
     defaultConfig {
-        applicationId "com.example.YI"
+        applicationId 'xyz.klaoye.YI'
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 8
         versionName "1.6.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -26,6 +26,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
     }
+    ndkVersion '22.1.7171670'
 
 }
 /*repositories {
@@ -40,10 +41,11 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.7'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'com.contrarywind:Android-PickerView:4.1.6'
     implementation 'com.squareup.okhttp3:okhttp:4.0.0'
+    implementation 'com.yungouos.pay:yungouos-pay-sdk:2.0.9'
     //implementation project(path: ':alipaySdk-15.6.5-20190718211148')
     //implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8'
     //implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])

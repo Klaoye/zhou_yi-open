@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/banboo2"
-    tools:context=".TableActivity">
+    tools:context="xyz.klaoye.YI.TableActivity">
 
     <Spinner
         android:id="@+id/spinner_gua_min_up"
