@@ -2,7 +2,7 @@
  * @author klaoye
  * @since jdk 1.8
  */
-package xyz.klaoye.YI.base;
+package xyz.klaoye.YI.bean;
 
 import android.content.Context;
 import android.media.AudioAttributes;

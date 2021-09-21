@@ -1,4 +1,4 @@
-package xyz.klaoye.YI.base;
+package xyz.klaoye.YI.bean;
 
 import java.io.InputStream;
 

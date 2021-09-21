@@ -33,8 +33,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import xyz.klaoye.YI.base.Global;
-import xyz.klaoye.YI.base.Tools;
+import xyz.klaoye.YI.bean.Global;
+import xyz.klaoye.YI.bean.Tools;
 
 public class TableActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     Button BtnSearch;//检索键
