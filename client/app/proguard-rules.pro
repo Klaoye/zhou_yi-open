@@ -15,7 +15,11 @@
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 -keepattributes SourceFile,LineNumberTable
-
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-keep public class com.yungouos.*
+-keep public class com.alibaba.*
+-keep public class com.bigkoo.*
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 -renamesourcefileattribute SourceFile

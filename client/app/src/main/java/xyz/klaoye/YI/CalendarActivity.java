@@ -14,8 +14,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import xyz.klaoye.YI.R;
-
 import java.util.Objects;
 
 public class CalendarActivity extends AppCompatActivity {

@@ -2,7 +2,7 @@
  * @author klaoye
  * @since jdk 1.8
  */
-package xyz.klaoye.YI;
+package xyz.klaoye.YI.base;
 
 import android.content.Context;
 import android.media.AudioAttributes;
@@ -10,14 +10,16 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 
-import xyz.klaoye.YI.R;
-
 import java.util.HashMap;
+
+import xyz.klaoye.YI.R;
 
 public class Global {
 
-    /**@param context 基于上下文调用 .*/
-    protected static SoundPool MySoundPool(Context context) {
+    /**
+     * @param context 基于上下文调用 .
+     */
+    public static SoundPool MySoundPool(Context context) {
         HashMap<Integer, Integer> voiceID = new HashMap<Integer, Integer>();//音频池列表
         SoundPool soundPool_table;//音频池
         SoundPool.Builder builder_soundPool_table;//音频池构建器

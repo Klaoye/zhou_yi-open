@@ -13,6 +13,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.SimpleAdapter;
@@ -24,14 +25,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import xyz.klaoye.YI.R;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class TableActivity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemSelectedListener {
+import xyz.klaoye.YI.base.Global;
+import xyz.klaoye.YI.base.Tools;
+
+public class TableActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     Button BtnSearch;//检索键
     Spinner spinner_gua_min_up;//下拉框上卦
     Spinner spinner_gua_min_dn;//下拉框下卦
@@ -42,6 +47,7 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
     SharedPreferences.Editor editor;//共享存储库编辑器
 
     SoundPool soundPool_table;//音频池
+    HashMap<String, String> guaMap;
 
     Intent MusicService;//音乐服务
     Intent SettingsActivity;//跳转至设置界面
@@ -57,14 +63,14 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
     boolean canCopy;
     AlertDialog about_alertDialog;
     AlertDialog first_use_alertDialog;
-    private TextView SearchTextView;//文字界面
-    private Typeface typefaceKAI;//字体
-    private Switch modelSwitch;//模式开关
-    private int up_gua_min_id;//上卦
-    private int dn_gua_min_id;//下卦
-    private int gua_max_id;//六十四卦
-    private boolean model;//模式
-    private long exitTime = 0;
+    TextView searchTextView;//文字界面
+    Typeface typefaceKAI;//字体
+    Switch modelSwitch;//模式开关
+    int up_gua_min_id;//上卦
+    int dn_gua_min_id;//下卦
+    int gua_max_id;//六十四卦
+    boolean model;//模式
+    long exitTime = 0;
 
     @SuppressLint("ResourceType")
     @Override
@@ -132,19 +138,19 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
         String[] gua_min = getResources().getStringArray(R.array.gua_min);//列表文字数组-八卦
         String[] gua_max = getResources().getStringArray(R.array.gua_max);//六十四卦
 
-        List<Map<String, Object>> List_gua_min = new ArrayList<Map<String, Object>>();//创建八卦文字列表
+        ArrayList<Map<String, Object>> List_gua_min = new ArrayList<Map<String, Object>>();//创建八卦文字列表
         //遍历图片及文字
         for (int i = 0; i < imageID.length(); i++) {
-            Map<String, Object> map = new HashMap<String, Object>();
+            Map<String, Object> map = new HashMap();
             map.put("image", imageID.getResourceId(i, 0));
             map.put("text", gua_min[i]);
             List_gua_min.add(map);
         }
 
-        List<Map<String, Object>> List_gua_max = new ArrayList<Map<String, Object>>();//创建六十四卦文字列表
-        //遍历文字
+        ArrayList<Map<String, String>> List_gua_max = new ArrayList();//创建六十四卦文字列表
+        /* 遍历文字 */
         for (String guaMax : gua_max) {
-            Map<String, Object> map = new HashMap<String, Object>();
+            Map<String, String> map = new HashMap();
             map.put("text", guaMax);
             List_gua_max.add(map);
         }
@@ -163,8 +169,8 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
         spinner_gua_max.setAdapter(adapter_gua_max);
         //*******************************
 
-        SearchTextView = findViewById(R.id.textView_search);//文本框
-        SearchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
+        searchTextView = findViewById(R.id.textView_search);//文本框
+        searchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
 
 
         BtnSearch = findViewById(R.id.btn_search);
@@ -206,10 +212,10 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
         spinner_gua_min_dn.setOnItemSelectedListener(this);
         spinner_gua_max.setOnItemSelectedListener(this);
         if (canCopy) {
-            SearchTextView.setTextIsSelectable(true);//复制文本框文字
+            searchTextView.setTextIsSelectable(true);//复制文本框文字
             // SearchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
         } else {
-            SearchTextView.setTextIsSelectable(false);
+            searchTextView.setTextIsSelectable(false);
             // SearchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
         }
 
@@ -236,6 +242,7 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
             first_use = settings.getBoolean("first_use", first_use);
             first_use_alertDialog.show();
         }
+        guaMap = getGuaMap();
 
     }
 
@@ -247,21 +254,21 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
             //通过以下操作实现“选八卦得出六十四卦”
             int position_max = up_gua_min_id * 8 + dn_gua_min_id;//六十四卦
             spinner_gua_max.setSelection(position_max);//跳转卦名
-            FindGua(up_gua_min_id, dn_gua_min_id);
+            findGua(up_gua_min_id, dn_gua_min_id);
         } else {//搜索模式
             //通过以下操作实现“选六十四卦得出八卦”
-            int position_up = gua_max_id / 8;//上卦
-            int position_dn = gua_max_id % 8;//下卦
+            int position_up = (short) (gua_max_id / 8);//上卦
+            int position_dn = (short) (gua_max_id % 8);//下卦
             spinner_gua_min_up.setSelection(position_up);//设置默认值
             spinner_gua_min_dn.setSelection(position_dn);
-            FindGua(position_up, position_dn);
+            findGua(position_up, position_dn);
         }
         //修改字体
-        SearchTextView.setTypeface(typefaceKAI);
-        SearchTextView.getPaint().setFakeBoldText(true);
+        searchTextView.setTypeface(typefaceKAI);
+        searchTextView.getPaint().setFakeBoldText(true);
 
-        SearchTextView.scrollTo(0, 0);
-        SearchTextView.postInvalidate();//刷新视图
+        searchTextView.scrollTo(0, 0);
+        searchTextView.postInvalidate();//刷新视图
 
         if (play_sounds) {
             soundPool_table.play(2, 1, 1, 1, 0, 1);
@@ -271,12 +278,13 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
     //点击下拉框
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Adapter adapter = parent.getAdapter();
         if(parent.equals(spinner_gua_min_up)){//上卦
-            up_gua_min_id = (int) adapter_gua_min.getItemId(position);
+            up_gua_min_id = (short) adapter.getItemId(position);
         }else if(parent.equals(spinner_gua_min_dn)){//下卦
-            dn_gua_min_id = (int) adapter_gua_min.getItemId(position);
+            dn_gua_min_id = (short) adapter.getItemId(position);
         }else if(parent.equals(spinner_gua_max)){//六十四卦
-            gua_max_id = (int) adapter_gua_min.getItemId(position);
+            gua_max_id = (short) adapter.getItemId(position);
         }
         if (play_sounds) {//音效
             soundPool_table.play(1, 1, 1, 1, 0, 1);
@@ -359,13 +367,13 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
         }
 
         if (canCopy) {
-            SearchTextView.setTextIsSelectable(true);//复制文本框文字
+            searchTextView.setTextIsSelectable(true);//复制文本框文字
             // SearchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
         } else {
             // SearchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
-            SearchTextView.setTextIsSelectable(false);//复制文本框文字
+            searchTextView.setTextIsSelectable(false);//复制文本框文字
         }
-        SearchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
+        searchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
 
         System.out.println("table重新读值成功");
     }
@@ -389,272 +397,28 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    //卦象逻辑
-    protected void FindGua(int up_gua_min_id, int dn_gua_min_id) {
-        switch (up_gua_min_id) {
-            case 0:
-                switch (dn_gua_min_id) {
-                    case 0:
-                        SearchTextView.setText(R.string.qian1);
-                        break;
-                    case 1:
-                        SearchTextView.setText(R.string.lv);
-                        break;
-                    case 2:
-                        SearchTextView.setText(R.string.tong_ren);
-                        break;
-                    case 3:
-                        SearchTextView.setText(R.string.wu_wang);
-                        break;
-                    case 4:
-                        SearchTextView.setText(R.string.gou);
-                        break;
-                    case 5:
-                        SearchTextView.setText(R.string.song);
-                        break;
-                    case 6:
-                        SearchTextView.setText(R.string.dun);
-                        break;
-                    case 7:
-                        SearchTextView.setText(R.string.fou);
-                        break;
-                    default:
-                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                        SearchTextView.setText("");
-                        break;
-                }
-                break;
-            case 1:
-                switch (dn_gua_min_id) {
-                    case 0:
-                        SearchTextView.setText(R.string.guai);
-                        break;
-                    case 1:
-                        SearchTextView.setText(R.string.dui);
-                        break;
-                    case 2:
-                        SearchTextView.setText(R.string.ge);
-                        break;
-                    case 3:
-                        SearchTextView.setText(R.string.sui);
-                        break;
-                    case 4:
-                        SearchTextView.setText(R.string.da_guo);
-                        break;
-                    case 5:
-                        SearchTextView.setText(R.string.kun47);
-                        break;
-                    case 6:
-                        SearchTextView.setText(R.string.xian);
-                        break;
-                    case 7:
-                        SearchTextView.setText(R.string.cui);
-                        break;
-                    default:
-                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                        SearchTextView.setText("");
-                        break;
-                }
-                break;
-            case 2:
-                switch (dn_gua_min_id) {
-                    case 0:
-                        SearchTextView.setText(R.string.da_you);
-                        break;
-                    case 1:
-                        SearchTextView.setText(R.string.kui);
-                        break;
-                    case 2:
-                        SearchTextView.setText(R.string.li);
-                        break;
-                    case 3:
-                        SearchTextView.setText(R.string.shi_ke);
-                        break;
-                    case 4:
-                        SearchTextView.setText(R.string.ding);
-                        break;
-                    case 5:
-                        SearchTextView.setText(R.string.wei_ji);
-                        break;
-                    case 6:
-                        SearchTextView.setText(R.string.lv56);
-                        break;
-                    case 7:
-                        SearchTextView.setText(R.string.jin);
-                        break;
-                    default:
-                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                        SearchTextView.setText("");
-                        break;
-                }
-                break;
-            case 3:
-                switch (dn_gua_min_id) {
-                    case 0:
-                        SearchTextView.setText(R.string.da_zhuang);
-                        break;
-                    case 1:
-                        SearchTextView.setText(R.string.gui_mei);
-                        break;
-                    case 2:
-                        SearchTextView.setText(R.string.feng);
-                        break;
-                    case 3:
-                        SearchTextView.setText(R.string.zhen);
-                        break;
-                    case 4:
-                        SearchTextView.setText(R.string.heng);
-                        break;
-                    case 5:
-                        SearchTextView.setText(R.string.jie40);
-                        break;
-                    case 6:
-                        SearchTextView.setText(R.string.xiao_guo);
-                        break;
-                    case 7:
-                        SearchTextView.setText(R.string.yu);
-                        break;
-                    default:
-                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                        SearchTextView.setText("");
-                        break;
-                }
-                break;
-            case 4:
-                switch (dn_gua_min_id) {
-                    case 0:
-                        SearchTextView.setText(R.string.xiao_xu);
-                        break;
-                    case 1:
-                        SearchTextView.setText(R.string.zhong_fu);
-                        break;
-                    case 2:
-                        SearchTextView.setText(R.string.jia_ren);
-                        break;
-                    case 3:
-                        SearchTextView.setText(R.string.yi42);
-                        break;
-                    case 4:
-                        SearchTextView.setText(R.string.xun);
-                        break;
-                    case 5:
-                        SearchTextView.setText(R.string.huan);
-                        break;
-                    case 6:
-                        SearchTextView.setText(R.string.jian53);
-                        break;
-                    case 7:
-                        SearchTextView.setText(R.string.guan);
-                        break;
-                    default:
-                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                        SearchTextView.setText("");
-                        break;
-                }
-                break;
-            case 5:
-                switch (dn_gua_min_id) {
-                    case 0:
-                        SearchTextView.setText(R.string.xv);
-                        break;
-                    case 1:
-                        SearchTextView.setText(R.string.jie60);
-                        break;
-                    case 2:
-                        SearchTextView.setText(R.string.ji_ji);
-                        break;
-                    case 3:
-                        SearchTextView.setText(R.string.zhun);
-                        break;
-                    case 4:
-                        SearchTextView.setText(R.string.jing);
-                        break;
-                    case 5:
-                        SearchTextView.setText(R.string.kan);
-                        break;
-                    case 6:
-                        SearchTextView.setText(R.string.jian39);
-                        break;
-                    case 7:
-                        SearchTextView.setText(R.string.bi);
-                        break;
-                    default:
-                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                        SearchTextView.setText("");
-                        break;
-                }
-                break;
-            case 6:
-                switch (dn_gua_min_id) {
-                    case 0:
-                        SearchTextView.setText(R.string.da_xu);
-                        break;
-                    case 1:
-                        SearchTextView.setText(R.string.sun);
-                        break;
-                    case 2:
-                        SearchTextView.setText(R.string.ben);
-                        break;
-                    case 3:
-                        SearchTextView.setText(R.string.yi27);
-                        break;
-                    case 4:
-                        SearchTextView.setText(R.string.gu);
-                        break;
-                    case 5:
-                        SearchTextView.setText(R.string.meng);
-                        break;
-                    case 6:
-                        SearchTextView.setText(R.string.gen);
-                        break;
-                    case 7:
-                        SearchTextView.setText(R.string.bo);
-                        break;
-                    default:
-                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                        SearchTextView.setText("");
-                        break;
-                }
-                break;
-            case 7:
-                switch (dn_gua_min_id) {
-                    case 0:
-                        SearchTextView.setText(R.string.tai);
-                        break;
-                    case 1:
-                        SearchTextView.setText(R.string.lin);
-                        break;
-                    case 2:
-                        SearchTextView.setText(R.string.ming_yi);
-                        break;
-                    case 3:
-                        SearchTextView.setText(R.string.fu);
-                        break;
-                    case 4:
-                        SearchTextView.setText(R.string.shen);
-                        break;
-                    case 5:
-                        SearchTextView.setText(R.string.shi);
-                        break;
-                    case 6:
-                        SearchTextView.setText(R.string.qian15);
-                        break;
-                    case 7:
-                        SearchTextView.setText(R.string.kun2);
-                        break;
-                    default:
-                        Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                        SearchTextView.setText("");
-                        break;
-                }
-                break;
-
-
-            default:
-                Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
-                SearchTextView.setText("");
-                break;
-
+    private HashMap<String, String> getGuaMap() {
+        try {
+            InputStream inStream = getAssets().open("json/gua.json");
+            String json = Tools.inputStream2String(inStream);
+            JSONObject jsonObject = (JSONObject) new JSONTokener(json).nextValue();
+            HashMap<String, String> guaMap = new HashMap<>();
+            for (String s : getResources().getStringArray(R.array.gua_max)) {
+                guaMap.put(s, jsonObject.getString(s));
+            }
+            //System.out.println(guaMap.toString());
+            return guaMap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new HashMap<>();
         }
+    }
+
+    //卦象逻辑
+    protected void findGua(int up_gua_id, int dn_gua_id) {
+        int gua_max = up_gua_id * 8 + dn_gua_id;
+        System.out.println(gua_max);
+        String[] guaNames = getResources().getStringArray(R.array.gua_max);
+        searchTextView.setText(guaMap.get(guaNames[gua_max]));
     }
 }

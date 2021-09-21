@@ -17,8 +17,6 @@ import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import xyz.klaoye.YI.R;
-
 import java.util.Objects;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -130,6 +128,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
         switch_play_music.setEnabled(false);
+        switch_play_music.setCursorVisible(false);
         switch_canCopay.setEnabled(false);//“可复制”开关不可触发
     }
 

@@ -24,11 +24,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         String infilePath = getFilesDir() + "/NoteData/";
-
         File infile = new File(infilePath);
         if (!infile.exists()) infile.mkdir();
         Log.w("FileCreate: ", "文件夹 " + infilePath + " 已输出");
-
 
         //GIF模块
         GifImageView GifIA1 = findViewById(R.id.GIFA1);
@@ -38,7 +36,6 @@ public class MainActivity extends Activity {
         Handler mHandler = new Handler();
         Runnable mRunnable = this::finish;
         mHandler.postDelayed(mRunnable, 3000);
-
         Table = new Intent(MainActivity.this, TableActivity.class);
     }
 

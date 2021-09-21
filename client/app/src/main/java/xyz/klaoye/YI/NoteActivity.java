@@ -31,8 +31,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
-import xyz.klaoye.YI.R;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
