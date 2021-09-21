@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/drawable/kun.xml" value="0.1712962962962963" />
+        <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/layout/activity_settings.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>

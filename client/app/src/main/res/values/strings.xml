@@ -48,6 +48,8 @@
     <string name="donate">捐赠</string>
     <string name="thank_donate">感谢您的捐赠。有您，我们会变得更好。</string>
     <string name="suggestion">如果您有意见或建议请发至邮箱klaoye@163.com\n</string>
+    <string name="screen_animation">开屏动画</string>
+    <string name="time_changed">时间已变更为<tools id="string">%1s</tools>秒</string>
 
 
 </resources>

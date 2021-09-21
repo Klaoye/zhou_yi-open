@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 8
-        versionName "1.6.2"
+        versionCode 9
+        versionName "1.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -22,8 +22,8 @@ android {
         }
     }
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
     ndkVersion '22.1.7171670'
 
@@ -43,7 +43,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'com.contrarywind:Android-PickerView:4.1.6'
-    implementation 'com.squareup.okhttp3:okhttp:4.0.0'
+    //implementation 'com.squareup.okhttp3:okhttp:4.0.0'
     implementation 'com.yungouos.pay:yungouos-pay-sdk:2.0.9'
     //implementation project(path: ':alipaySdk-15.6.5-20190718211148')
     //implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8'

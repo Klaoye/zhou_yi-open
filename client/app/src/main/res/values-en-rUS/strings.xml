@@ -47,4 +47,6 @@ If you have any questions or suggestions, your feedback is always welcome. I hop
     <string name="donate">Donate</string>
     <string name="thank_donate">Thank you for your donation. With you, we will get better.</string>
     <string name="suggestion">If you have comments or suggestions, please email to klaoye@163.com\n</string>
+    <string name="screen_animation">Open screen animation duration</string>
+    <string name="time_changed">" time changed to <tools id="string">%1s</tools>seconds"</string>
 </resources>

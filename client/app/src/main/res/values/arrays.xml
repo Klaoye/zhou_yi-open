@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="gua_min">
+    <string-array name="gua_8">
         <item>乾</item>
         <item>兑</item>
         <item>离</item>
@@ -11,7 +11,7 @@
         <item>坤</item>
     </string-array>
 
-    <string-array name="gua_max">
+    <string-array name="gua_64">
         <item>乾</item>
         <item>履</item>
         <item>同人</item>

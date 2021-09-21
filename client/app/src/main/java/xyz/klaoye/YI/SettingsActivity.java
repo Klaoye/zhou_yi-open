@@ -13,22 +13,25 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
+import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, SeekBar.OnSeekBarChangeListener {
     SharedPreferences settings;
     SharedPreferences.Editor settings_editor;
-    Switch switch_play_music;//音乐开关
-    Switch switch_play_sounds;//音效开关
-    Switch switch_canCopay;
     Intent MusicService;//音乐服务
+    SeekBar seekBarOpenScreenTime;
+    ArrayList<Switch> switches = new ArrayList<>();
     private boolean is_play_music;//是否播放音乐
     private boolean is_play_sounds;//是否播放音效
-    private boolean canCopy;
+    private boolean can_copy;
+    int open_screen_time;
 
     @SuppressLint("CommitPrefEdits")
     @Override
@@ -45,91 +48,47 @@ public class SettingsActivity extends AppCompatActivity {
 
         MusicService = new Intent(SettingsActivity.this, MusicService.class);
 
-        switch_play_music = findViewById(R.id.switch_music);
-        switch_play_sounds = findViewById(R.id.switch_sounds);
-        switch_canCopay = findViewById(R.id.switch_can_copy);
+        switches.add(findViewById(R.id.switch_music));
+        switches.add(findViewById(R.id.switch_sounds));
+        switches.add(findViewById(R.id.switch_can_copy));
+
+
+        seekBarOpenScreenTime = findViewById(R.id.seekBar_animation_time);
 
         settings = getSharedPreferences("data", Context.MODE_PRIVATE);
         settings_editor = settings.edit();
 
         is_play_music = settings.getBoolean("is_play_music", true);
         is_play_sounds = settings.getBoolean("is_play_sounds", true);
-        canCopy = settings.getBoolean("can_copy", false);
+        open_screen_time = settings.getInt("open_screen_time", 3);
+        can_copy = settings.getBoolean("can_copy", false);
+
+        switches.get(0).setOnCheckedChangeListener(this);
+        switches.get(1).setOnCheckedChangeListener(this);
+        switches.get(2).setOnCheckedChangeListener(this);
+
+        seekBarOpenScreenTime.setOnSeekBarChangeListener(this);
+        seekBarOpenScreenTime.setProgress(open_screen_time);
 
         if (is_play_music) {//音乐开关
-            switch_play_music.setChecked(true);
+            switches.get(0).setChecked(true);
         } else {
-            switch_play_music.setChecked(false);
+            switches.get(0).setChecked(false);
         }
         if (is_play_sounds) {//音效开关
-            switch_play_sounds.setChecked(true);
+            switches.get(1).setChecked(true);
         } else {
-            switch_play_sounds.setChecked(false);
+            switches.get(1).setChecked(false);
         }
-        if (canCopy) {
-            switch_canCopay.setChecked(true);
+        if (can_copy) {
+            switches.get(2).setChecked(true);
         } else {
-            switch_canCopay.setChecked(false);
+            switches.get(2).setChecked(false);
         }
 
-        switch_play_music.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean b) {
-                if (b) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        switch_play_music.setThumbResource(R.drawable.switch_thumb_white);
-                    }
-                    startService(MusicService);
-                } else {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        switch_play_music.setThumbResource(R.drawable.switch_thumb_black);
-                    }
-                    stopService(MusicService);
-                }
-                settings_editor.putBoolean("is_play_music", b).apply();//开关控制音乐播放并写入数值
-                is_play_music = settings.getBoolean("is_play_music", is_play_music);
-                System.out.println("音乐播放为：" + b);
-            }
-        });
-
-        switch_play_sounds.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean b) {
-                if (b) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        switch_play_sounds.setThumbResource(R.drawable.switch_thumb_white);
-                    }
-                } else {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        switch_play_sounds.setThumbResource(R.drawable.switch_thumb_black);
-                    }
-                }
-                settings_editor.putBoolean("is_play_sounds", b).apply();//开关控制音效写入数值
-                is_play_sounds = settings.getBoolean("is_play_sounds", is_play_sounds);
-                System.out.println("音效播放为：" + b);
-            }
-        });
-
-        switch_canCopay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean b) {
-                if (b) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        switch_canCopay.setThumbResource(R.drawable.switch_thumb_white);
-                    }
-                } else {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        switch_canCopay.setThumbResource(R.drawable.switch_thumb_black);
-                    }
-                }
-                settings_editor.putBoolean("can_copy", b).apply();
-                canCopy = settings.getBoolean("can_copy", false);
-                Log.w("switch canCopay", "可否复制正文" + b);
-            }
-        });
-        switch_play_music.setEnabled(false);
-        switch_play_music.setCursorVisible(false);
-        switch_canCopay.setEnabled(false);//“可复制”开关不可触发
+        switches.get(0).setEnabled(false);
+        switches.get(0).setCursorVisible(false);
+        switches.get(2).setEnabled(false);//“可复制”开关不可触发
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -144,5 +103,54 @@ public class SettingsActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        int view_id = 0;
+        if (compoundButton.equals(switches.get(0))) {
+            view_id = 0;
+            settings_editor.putBoolean("is_play_music", b).apply();//开关控制音乐播放并写入数值
+            is_play_music = settings.getBoolean("is_play_music", is_play_music);
+            Log.w("switch music", "音效播放为：" + b);
+        } else if (compoundButton.equals(switches.get(1))) {
+            view_id = 1;
+            settings_editor.putBoolean("is_play_sounds", b).apply();//开关控制音效写入数值
+            is_play_sounds = settings.getBoolean("is_play_sounds", is_play_sounds);
+            Log.w("switch sound", "音效播放为：" + b);
+        } else if (compoundButton.equals(switches.get(2))) {
+            view_id = 2;
+            settings_editor.putBoolean("can_copy", b).apply();
+            can_copy = settings.getBoolean("can_copy", false);
+            Log.w("switch can_copy", "可否复制正文" + b);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            if (b) {
+                switches.get(view_id).setThumbResource(R.drawable.switch_thumb_white);
+            } else {
+                switches.get(view_id).setThumbResource(R.drawable.switch_thumb_black);
+            }
+        }
+
+    }
+
+    @SuppressLint("StringFormatMatches")
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+        if (seekBar.equals(seekBarOpenScreenTime)) {
+            settings_editor.putInt("open_screen_time", i).apply();
+            Toast.makeText(this, getString(R.string.time_changed, i), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
     }
 }

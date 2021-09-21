@@ -8,7 +8,7 @@
     tools:context="xyz.klaoye.YI.TableActivity">
 
     <Spinner
-        android:id="@+id/spinner_gua_min_up"
+        android:id="@+id/spinner_gua_8_up"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:background="@drawable/button_and_item"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
-        android:id="@+id/spinner_gua_min_dn"
+        android:id="@+id/spinner_gua_8_dn"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:background="@drawable/button_and_item"
@@ -59,7 +59,7 @@
         app:layout_constraintVertical_bias="0.09" />
 
     <Spinner
-        android:id="@+id/spinner_gua_max"
+        android:id="@+id/spinner_gua_64"
         android:layout_width="94dp"
         android:layout_height="43dp"
         android:background="@drawable/button_and_item"

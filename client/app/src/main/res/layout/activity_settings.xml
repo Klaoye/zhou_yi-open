@@ -49,4 +49,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.009" />
 
+    <SeekBar
+        android:id="@+id/seekBar_animation_time"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="0dp"
+        android:layout_height="77dp"
+        android:hapticFeedbackEnabled="true"
+        android:max="3"
+        android:progress="1"
+        android:tag="@string/screen_animation"
+        android:textAlignment="textStart"
+        android:textDirection="inherit"
+        android:thumb="@drawable/switch_thumb_white"
+        android:verticalScrollbarPosition="defaultPosition"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_can_copy"
+        app:layout_constraintVertical_bias="0.0"
+        app:tickMarkTintMode="add" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
