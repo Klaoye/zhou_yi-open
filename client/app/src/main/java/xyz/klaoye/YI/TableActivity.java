@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,8 +41,8 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
     Spinner spinnerGua8Up;//下拉框上卦
     Spinner spinnerGua8Dn;//下拉框下卦
     Spinner spinnerGua64;//下拉框六十四卦
-    SimpleAdapter adapterGua8;//八卦适配器
-    SimpleAdapter adapterGua64;//六十四卦适配器
+    SpinnerAdapter adapterGua8;//八卦适配器
+    SpinnerAdapter adapterGua64;//六十四卦适配器
     SharedPreferences settings;//共享存储库
     SharedPreferences.Editor editor;//共享存储库编辑器
 
@@ -134,32 +135,30 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
         TypedArray imageID = getResources().obtainTypedArray(R.array.table_menu_drawable);
         //图片ID数组
 
-        String[] gua_min = getResources().getStringArray(R.array.gua_8);//列表文字数组-八卦
-        String[] gua_max = getResources().getStringArray(R.array.gua_64);//六十四卦
+        String[] gua_8_texts = getResources().getStringArray(R.array.gua_8);//列表文字数组-八卦
+        String[] gua_64_texts = getResources().getStringArray(R.array.gua_64);//六十四卦
 
-        ArrayList<Map<String, Object>> list_gua_8 = new ArrayList<Map<String, Object>>();//创建八卦文字列表
+        ArrayList<Map<String, Object>> list_gua_8 = new ArrayList<>();//创建八卦文字列表
         //遍历图片及文字
         for (int i = 0; i < imageID.length(); i++) {
-            Map<String, Object> map = new HashMap();
+            Map<String, Object> map = new HashMap<>();
             map.put("image", imageID.getResourceId(i, 0));
-            map.put("text", gua_min[i]);
+            map.put("text", gua_8_texts[i]);
             list_gua_8.add(map);
         }
-
-        ArrayList<Map<String, String>> list_gua_64 = new ArrayList();//创建六十四卦文字列表
-        /* 遍历文字 */
-        for (String guaMax : gua_max) {
-            Map<String, String> map = new HashMap();
-            map.put("text", guaMax);
+        //创建六十四卦文字列表
+        ArrayList<Map<String, String>> list_gua_64 = new ArrayList<>();
+        for (String s : gua_64_texts) {
+            Map<String, String> map = new HashMap<>();
+            map.put("text", s);
             list_gua_64.add(map);
         }
-
         //创建八卦适配器
-        adapterGua8 = new SimpleAdapter(this, list_gua_8, R.layout.gua_item_min,
-                new String[]{"text", "image"}, new int[]{R.id.textView_gua_min, R.id.imageView_gua});
+        adapterGua8 = new SimpleAdapter(this, list_gua_8, R.layout.gua_item_8,
+                new String[]{"text", "image"}, new int[]{R.id.textView_gua_8, R.id.imageView_gua});
         //创建六十四卦适配器
-        adapterGua64 = new SimpleAdapter(this, list_gua_64, R.layout.gua_item_max,
-                new String[]{"text"}, new int[]{R.id.textView_gua_max});
+        adapterGua64 = new SimpleAdapter(this, list_gua_64, R.layout.gua_item_64,
+                new String[]{"text"}, new int[]{R.id.textView_gua_64});
         //上卦装载适配器
         spinnerGua8Up.setAdapter(adapterGua8);
         //下挂装载适配器
@@ -322,8 +321,8 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(NoteActivity);
                 break;
             case 4:
-                Toast.makeText(TableActivity.this, R.string.building, Toast.LENGTH_SHORT).show();
-                //startActivity(CalendarActivity);
+                //Toast.makeText(TableActivity.this, R.string.building, Toast.LENGTH_SHORT).show();
+                startActivity(CalendarActivity);
                 break;
             default:
                 Toast.makeText(TableActivity.this, R.string.error, Toast.LENGTH_SHORT).show();

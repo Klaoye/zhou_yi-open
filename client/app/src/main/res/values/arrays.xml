@@ -103,6 +103,36 @@
         <item>@drawable/gen</item>
         <item>@drawable/kun</item>
     </string-array>
+
+    <string-array name="tian_gan">
+        <item>甲</item>
+        <item>乙</item>
+        <item>丙</item>
+        <item>丁</item>
+        <item>戊</item>
+        <item>己</item>
+        <item>庚</item>
+        <item>辛</item>
+        <item>壬</item>
+        <item>癸</item>
+    </string-array>
+
+    <string-array name="di_zhi">
+        <item>子</item>
+        <item>丑</item>
+        <item>寅</item>
+        <item>卯</item>
+        <item>辰</item>
+        <item>巳</item>
+        <item>午</item>
+        <item>未</item>
+        <item>申</item>
+        <item>酉</item>
+        <item>戌</item>
+        <item>亥</item>
+
+    </string-array>
+
     <string-array name="help_array">
         <item>如何浅读《周易》</item>
         <item>如何使用本产品</item>

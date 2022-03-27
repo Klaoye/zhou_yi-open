@@ -72,7 +72,7 @@ public class NoteActivity extends AppCompatActivity {
         noteListView = findViewById(R.id.list_note);
         intent = new Intent(NoteActivity.this, NoteActivity.class);
 
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, funNoteList());
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, listNotes());
 
         noteListView.setAdapter(adapter);
 
@@ -92,7 +92,7 @@ public class NoteActivity extends AppCompatActivity {
                 .setView(addView)
                 .setPositiveButton(R.string.save, (dialog, which) -> {
                     if (!addTittleEdit.getText().toString().equals("")) {
-                        funSaveFile(addTittleEdit.getText().toString(), addTittleEdit.getText().toString(), false);
+                        saveFile(addTittleEdit.getText().toString(), addTittleEdit.getText().toString(), false);
                         addTittleEdit.setText(null);
                         addTextEdit.setText(null);
                         noteListView.invalidate();
@@ -108,10 +108,10 @@ public class NoteActivity extends AppCompatActivity {
                 })//取消按钮
                 .create();
 
-        addButton.setOnClickListener((View v) ->inputAlertDialog.show());
-        noteListView.setOnItemClickListener((parent, view, position, id) -> funAlertDialog(funNoteList()[position], funReadFile(funNoteList()[position])).show());
+        addButton.setOnClickListener((View v) -> inputAlertDialog.show());
+        noteListView.setOnItemClickListener((parent, view, position, id) -> editorAlertDialog(listNotes()[position], readFile(listNotes()[position])).show());
         noteListView.setOnItemLongClickListener((parent, view, position, id) -> {
-            funOperationDialog(funNoteList()[position]).show();
+            operationDialog(listNotes()[position]).show();
             return true;
         });
 
@@ -120,9 +120,9 @@ public class NoteActivity extends AppCompatActivity {
     /**
      * @param fileName 创建文件名 .
      * @param message  文件内容 .
-     * 显示 笔记 弹窗方法
+     *                 显示 笔记 弹窗方法
      */
-    protected AlertDialog funAlertDialog(final String fileName, String message) {
+    protected AlertDialog editorAlertDialog(final String fileName, String message) {
         AlertDialog.Builder ADbuilder = new AlertDialog.Builder(NoteActivity.this);
         AlertDialog alertDialog;
         View view = getLayoutInflater().inflate(R.layout.write_note_view, null);
@@ -136,7 +136,7 @@ public class NoteActivity extends AppCompatActivity {
                 .setView(view)
                 .setPositiveButton(R.string.save, (dialog, which) -> {
                     if (tittle_editor.getText().toString() != null) {
-                        funSaveFile(tittle_editor.getText().toString(), text_editor.getText().toString(), false);
+                        saveFile(tittle_editor.getText().toString(), text_editor.getText().toString(), false);
                         System.out.println("note AlertDialog" + fileName + " 已输出");
                     } else {
                         Toast.makeText(NoteActivity.this, R.string.cant_null, Toast.LENGTH_LONG).show();
@@ -147,7 +147,7 @@ public class NoteActivity extends AppCompatActivity {
                 .setNeutralButton(R.string.delete, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        funDeleteFile(fileName);
+                        deleteNote(fileName);
                         noteListView.invalidate();
                         finish();
                         startActivity(intent);
@@ -157,7 +157,7 @@ public class NoteActivity extends AppCompatActivity {
                 .setNeutralButton(R.string.out_put, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        funSaveFile(tittle_editor.getText().toString(), text_editor.getText().toString(), true);
+                        saveFile(tittle_editor.getText().toString(), text_editor.getText().toString(), true);
                     }
                 });
         alertDialog = ADbuilder.create();
@@ -167,16 +167,16 @@ public class NoteActivity extends AppCompatActivity {
     /**
      * @param fileName 创建文件名 .
      * @return AlertDialog 返回一个含有内容的弹窗（可编辑） .
-     *列表长按弹窗 方法
+     * 列表长按弹窗 方法
      */
-    protected AlertDialog funOperationDialog(final String fileName) {
+    protected AlertDialog operationDialog(final String fileName) {
         AlertDialog alertDialog;
         final AlertDialog.Builder builder = new AlertDialog.Builder(NoteActivity.this);
         builder.setTitle(R.string.note_operation)
                 .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        funDeleteFile(fileName);
+                        deleteNote(fileName);
                         finish();
                         startActivity(intent);
                     }
@@ -190,12 +190,12 @@ public class NoteActivity extends AppCompatActivity {
 
     /**
      * @param fileName 创建文件名 .
-     * @param message 文件内容 .
-     *@param isOut 是否输出到外置存储 .
-     *将笔记文件写入 方法
+     * @param message  文件内容 .
+     * @param isOut    是否输出到外置存储 .
+     *                 将笔记文件写入 方法
      */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    protected void funSaveFile(String fileName, String message, boolean isOut) {
+    protected void saveFile(String fileName, String message, boolean isOut) {
         File file;
         if (isOut) {//如果存储到外部
             checkPermission();
@@ -234,10 +234,10 @@ public class NoteActivity extends AppCompatActivity {
     /**
      * @param fileName .内部的TXT文件
      * @return String 文件内容
-     *读取内部笔记 方法
+     * 读取内部笔记 方法
      */
 
-    protected String funReadFile(String fileName) {
+    protected String readFile(String fileName) {
         String outString;
         File filePath = new File(getFilesDir() + "/NoteData/" + fileName + ".txt");
         try {
@@ -260,19 +260,22 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     /**@param fileName .内部的TXT文件*/
-    /**删除 方法*/
-    protected void funDeleteFile(String fileName) {
+    /**
+     * 删除 方法
+     */
+    protected void deleteNote(String fileName) {
         File file = new File(getFilesDir() + "/NoteData/" + fileName + ".txt");
         file.delete();
     }
 
 
     /**
-     *遍历文件 方法
+     * 遍历文件 方法
+     *
      * @return String[] 遍历内部存储的TXT文件名
      */
 
-    protected String[] funNoteList() {
+    protected String[] listNotes() {
         File filePath = new File(getFilesDir() + "/NoteData/");
         String fileName;
         File[] files = filePath.listFiles();
@@ -288,7 +291,7 @@ public class NoteActivity extends AppCompatActivity {
             System.out.println("列" + strings[length] + "遍历完成");
         }
 
-        System.out.println("笔记列表 遍历完成");
+        Log.w("List Notes","笔记列表 遍历完成");
 
         return strings;
     }
