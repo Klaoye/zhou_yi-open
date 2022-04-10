@@ -5,8 +5,15 @@
       <map>
         <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/drawable/kun.xml" value="0.1712962962962963" />
         <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/layout/activity_calendar.xml" value="0.14356884057971014" />
+        <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/layout/activity_main.xml" value="0.18541666666666667" />
+        <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/layout/activity_note.xml" value="0.18541666666666667" />
         <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/layout/activity_settings.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/layout/activity_table.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/layout/gua_item_64.xml" value="0.18115942028985507" />
+        <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/layout/gua_item_8.xml" value="0.18115942028985507" />
         <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/layout/gua_item_max.xml" value="0.11354166666666667" />
+        <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/layout/universal_text_view.xml" value="0.18115942028985507" />
+        <entry key="..\:/AndroidProjects/YI/client/app/src/main/res/layout/write_note_view.xml" value="0.18115942028985507" />
       </map>
     </option>
   </component>

@@ -9,6 +9,7 @@ import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,8 +38,8 @@ import java.util.Map;
 import xyz.klaoye.YI.bean.Global;
 import xyz.klaoye.YI.bean.Tools;
 
-public class TableActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
-    Button BtnSearch;//检索键
+public class TableActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    //Button BtnSearch;//检索键
     Spinner spinnerGua8Up;//下拉框上卦
     Spinner spinnerGua8Dn;//下拉框下卦
     Spinner spinnerGua64;//下拉框六十四卦
@@ -65,12 +67,13 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
     AlertDialog firstUseAlertdialog;
     TextView searchTextView;//文字界面
     //Typeface typeface;//字体
-    Switch modelSwitch;//模式开关
+    //Switch modelSwitch;//模式开关
     int up_gua8_id;//上卦
     int dn_gua8_id;//下卦
     int gua64_id;//六十四卦
     boolean model;//模式
     long exit_time = 0;
+    boolean press_again = false;
 
     @SuppressLint("ResourceType")
     @Override
@@ -123,7 +126,6 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
             stopService(MusicService);
         }
 
-        modelSwitch = findViewById(R.id.switch_model);
         model = false;//模式初始值
         //typeface = Typeface.createFromAsset(getAssets(), "fonts/Song.otf");//注册字体
 
@@ -169,43 +171,6 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
 
         searchTextView = findViewById(R.id.textView_search);//文本框
         searchTextView.setMovementMethod(ScrollingMovementMethod.getInstance());//滑动字面
-
-
-        BtnSearch = findViewById(R.id.btn_search);
-        BtnSearch.setText(R.string.search);
-        BtnSearch.setTextSize(33);//字号
-        //BtnSearch.setTypeface(typeface);//字体
-        BtnSearch.getPaint().setFakeBoldText(true);//绘制字体
-        modelSwitch.setTextSize(15);
-
-        modelSwitch.setTextSize(15);
-
-        //模式监听
-        modelSwitch.setOnCheckedChangeListener((compoundButton, b) -> {
-            if (b) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    modelSwitch.setThumbResource(R.drawable.switch_thumb_white);
-                }
-                if (play_sounds) {
-                    soundPool_table.play(3, 1, 1, 1, 0, 1);
-                }
-                model = true;
-                modelSwitch.setText(R.string.gua_mean);
-                Toast.makeText(TableActivity.this, R.string.please_click, Toast.LENGTH_SHORT).show();
-            } else {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    modelSwitch.setThumbResource(R.drawable.switch_thumb_black);
-                }
-                if (play_sounds) {
-                    soundPool_table.play(4, 1, 1, 1, 0, 1);
-                }
-                model = false;
-                modelSwitch.setText(R.string.gua_drawable);
-            }
-
-        });
-
-        BtnSearch.setOnClickListener(this);
         spinnerGua8Up.setOnItemSelectedListener(this);
         spinnerGua8Dn.setOnItemSelectedListener(this);
         spinnerGua64.setOnItemSelectedListener(this);
@@ -247,46 +212,35 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    //按钮单击事件
+    //点击下拉框
     @Override
-    public void onClick(View v) {
-        //逻辑匹配
-        if (!model) {//检索模式
-            //通过以下操作实现“选八卦得出六十四卦”
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Adapter adapter = parent.getAdapter();
+        int parentViewID = parent.getId();
+        System.out.println(parentViewID);
+        if (parentViewID == spinnerGua8Up.getId() || parentViewID == spinnerGua8Dn.getId()) {
+            if (parentViewID == spinnerGua8Up.getId()) {
+                up_gua8_id = position;
+                dn_gua8_id = spinnerGua8Dn.getSelectedItemPosition();
+            } else {
+                up_gua8_id = spinnerGua8Up.getSelectedItemPosition();
+                dn_gua8_id = position;
+            }
             int position_max = up_gua8_id * 8 + dn_gua8_id;//六十四卦
             spinnerGua64.setSelection(position_max);//跳转卦名
             findGua(up_gua8_id, dn_gua8_id);
-        } else {//搜索模式
-            //通过以下操作实现“选六十四卦得出八卦”
+        } else if (parentViewID == spinnerGua64.getId()) {
+            gua64_id = position;
             int position_up = (short) (gua64_id / 8);//上卦
             int position_dn = (short) (gua64_id % 8);//下卦
             spinnerGua8Up.setSelection(position_up);//设置默认值
             spinnerGua8Dn.setSelection(position_dn);
             findGua(position_up, position_dn);
         }
-        //修改字体
-        //searchTextView.setTypeface(typeface);
-        searchTextView.getPaint().setFakeBoldText(true);
 
+        searchTextView.getPaint().setFakeBoldText(true);
         searchTextView.scrollTo(0, 0);
         searchTextView.postInvalidate();//刷新视图
-
-        if (play_sounds) {
-            soundPool_table.play(2, 1, 1, 1, 0, 1);
-        }
-    }
-
-    //点击下拉框
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Adapter adapter = parent.getAdapter();
-        if (parent.equals(spinnerGua8Up)) {//上卦
-            up_gua8_id = (short) adapter.getItemId(position);
-        } else if (parent.equals(spinnerGua8Dn)) {//下卦
-            dn_gua8_id = (short) adapter.getItemId(position);
-        } else if (parent.equals(spinnerGua64)) {//六十四卦
-            gua64_id = (short) adapter.getItemId(position);
-        }
         if (play_sounds) {//音效
             soundPool_table.play(1, 1, 1, 1, 0, 1);
         }
@@ -389,12 +343,14 @@ public class TableActivity extends AppCompatActivity implements View.OnClickList
     public void onBackPressed() {
         super.onBackPressed();
         long currentTime = System.currentTimeMillis();
-        if ((currentTime - exit_time) >= 2500) {
-            Toast.makeText(TableActivity.this, R.string.BackPressend, Toast.LENGTH_SHORT).show();
-            exit_time = currentTime;
-        } else {
+        //if(exit_time == 0) exit_time = System.currentTimeMillis();
+        if ((currentTime - exit_time) < 2500 && press_again) {
             System.exit(0);
-            System.out.println("application 完全退出");
+            //System.out.println("application 完全退出");
+        } else {
+            Toast.makeText(TableActivity.this, R.string.BackPressend, Toast.LENGTH_SHORT).show();
+            press_again = true;
+            exit_time = currentTime;
         }
     }
 

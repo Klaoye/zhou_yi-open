@@ -38,11 +38,9 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-            String[] str_array = getResources().getStringArray(R.array.table_menu);
-            Objects.requireNonNull(getSupportActionBar()).setTitle(str_array[4]);
-        }//设置顶部返回箭头
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        String[] str_array = getResources().getStringArray(R.array.table_menu);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(str_array[4]);
 
         buttonChoseTime = findViewById(R.id.button_chose_date);
         buttonCurrentTime = findViewById(R.id.button_current_time);

@@ -115,6 +115,7 @@ public class NoteActivity extends AppCompatActivity {
             return true;
         });
 
+        checkFolder();
     }
 
     /**
@@ -311,6 +312,16 @@ public class NoteActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
         Log.i("back pressed", "note已销毁");
+    }
+
+    private void checkFolder() {
+        String infilePath = getFilesDir() + "/NoteData/";
+        File infile = new File(infilePath);
+        if (!infile.exists()) {
+            infile.mkdir();
+            Log.w("FileCreate: ", "文件夹 " + infilePath + " 已输出");
+        }
+
     }
 
     /***************************权限检查***************************************************************/
