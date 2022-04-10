@@ -32,9 +32,12 @@ import org.json.JSONTokener;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import xyz.klaoye.YI.bean.CalendarTranslator;
 import xyz.klaoye.YI.bean.Global;
 import xyz.klaoye.YI.bean.Tools;
 
@@ -210,6 +213,9 @@ public class TableActivity extends AppCompatActivity implements AdapterView.OnIt
         }
         guaMap = getGuaMap();
 
+        //CalendarTranslator ctl = new CalendarTranslator(this);
+        //String[] ss = ctl.getGanZhi(Calendar.getInstance());
+        //System.out.println(Arrays.toString(ss));
     }
 
     //点击下拉框
