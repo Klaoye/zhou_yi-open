@@ -1,0 +1,28 @@
+xyz/klaoye/YI/TableActivity.java
+ xyz.klaoye.YI.TableActivity
+xyz/klaoye/YI/bean/CalendarTranslator.java
+ xyz.klaoye.YI.bean.CalendarTranslator
+xyz/klaoye/YI/databases/Operator.java
+ xyz.klaoye.YI.databases.Operator
+xyz/klaoye/YI/NoteActivity.java
+ xyz.klaoye.YI.NoteActivity
+ xyz.klaoye.YI.NoteActivity$1
+ xyz.klaoye.YI.NoteActivity$2
+ xyz.klaoye.YI.NoteActivity$3
+xyz/klaoye/YI/HelpActivity.java
+ xyz.klaoye.YI.HelpActivity
+ xyz.klaoye.YI.HelpActivity$1
+xyz/klaoye/YI/bean/Tools.java
+ xyz.klaoye.YI.bean.Tools
+xyz/klaoye/YI/SettingsActivity.java
+ xyz.klaoye.YI.SettingsActivity
+xyz/klaoye/YI/MusicService.java
+ xyz.klaoye.YI.MusicService
+xyz/klaoye/YI/bean/AlertDialogFactory.java
+ xyz.klaoye.YI.bean.AlertDialogFactory
+xyz/klaoye/YI/BuildConfig.java
+ xyz.klaoye.YI.BuildConfig
+xyz/klaoye/YI/CalendarActivity.java
+ xyz.klaoye.YI.CalendarActivity
+xyz/klaoye/YI/bean/Global.java
+ xyz.klaoye.YI.bean.Global

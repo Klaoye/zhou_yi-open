@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="xyz.klaoye.YI"
+    android:targetSandboxVersion="2"
+    android:versionCode="8"
+    android:versionName="1.6.2" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="com.klaoye.YI.xyz.klaoye.YI.MainActivity" >
+            <intent-filter android:scheme="http" >
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.klaoye.YI.xyz.klaoye.YI.CalendarActivity" />
+        <activity android:name="com.klaoye.YI.xyz.klaoye.YI.HelpActivity" />
+        <activity android:name="com.klaoye.YI.xyz.klaoye.YI.NoteActivity" >
+        </activity>
+        <activity android:name="com.klaoye.YI.xyz.klaoye.YI.SettingsActivity" />
+        <activity android:name="com.klaoye.YI.xyz.klaoye.YI.TableActivity" />
+
+        <service
+            android:name="com.klaoye.YI.xyz.klaoye.YI.MusicService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <!-- 文件分享器 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.klaoye.YI.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+
+</manifest>

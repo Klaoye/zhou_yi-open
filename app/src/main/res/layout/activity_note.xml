@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/banboo2"
-    tools:context=".NoteActivity">
+    tools:context="xyz.klaoye.YI.NoteActivity">
 
     <Button
         android:id="@+id/add_Button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background="@drawable/button_and_item"
         android:text="@string/new_text"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

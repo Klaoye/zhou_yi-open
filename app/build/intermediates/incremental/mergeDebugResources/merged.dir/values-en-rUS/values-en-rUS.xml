@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZhouYi(Chinese practise divination)</string>
+    <string name="back_press">Press again to exit the program</string>
+    <string name="building">building……</string>
+    <string name="can_copy">Body content can be copied.</string>
+    <string name="cancel">Cancel</string>
+    <string name="cant_null">The title can not be blank！</string>
+    <string name="chose">chose</string>
+    <string name="click">You clicked on the <tools id="string">%1s</tools> bar.</string>
+    <string name="company">Clever Eye Studio</string>
+    <string name="created">Created</string>
+    <string name="delete">delete</string>
+    <string name="deleted">Deleted</string>
+    <string name="developer_information">Development Information: \n Development Team: Clever Eye team \n Members: \n 1. Ye Xinyu \n</string>
+    <string name="donate">Donate</string>
+    <string name="donate_information">The team developed this software to help more people learn "Book of Changes" and pick up the culture forgotten by the Chinese nation. We have been insisting on improving the product, but if the worker wants to do his best, he must first sharpen his weapon.
+             Software development and operation requires a lot of material and financial resources, and we hope you can help us by clicking the donation below. This is a completely voluntary matter and you need not worry.</string>
+    <string name="error">An error occurred. Please check the input or contact the developer.</string>
+    <string name="file_path">file path:</string>
+    <string name="file_saved">The file has been saved to</string>
+    <string name="first_use_title">First use</string>
+    <string name="first_wse_message">Do you need to understand the history,
+                                     function, interpretation and how to use the software
+                                     of Zhouyi?</string>
+    <string name="getDate">chose Date</string>
+    <string name="get_current_time">current Time</string>
+    <string name="hou_to_read">"Book of Changes" or "Book of Changes" is one of the traditional Chinese classics. There are sixty-four hexagrams in Zhouyi, and each hexagram consists of six yáo (solid and dotted lines, named "爻").
+ Each tadpole in the hexagram has meaning, which is called "yao ci", and "hexagram" is a summary and comment on the entire hexagram.
+The solid line is "yang" and the dotted line is "yin". The three lines are composed of gossips. The two groups of gospels are composed of sixty-four hexagrams.
+Gossip is the basis in Yixue. Gossip can be expressed as direction, time (hours, solar terms), five elements, etc. Therefore, the basic algorithms of Yixue all start from gossip.
+"I Ching" has a wide range of applications: the laws of celestial body movements, seasons and seasonal speculations, military strategies, traditional Chinese medicine, determination of good times, searching for habitable areas or lost objects, gaining advantages and avoiding evils, philosophical ideas, combing relationships, etc. By breaking down the sixty-four hexagrams into gossips, the beginners can get a preliminary understanding of the operation mechanism of Zhouyi, and the in-depth researchers can use them more smoothly.
+If you have any questions or suggestions, your feedback is always welcome. I hope our products will be helpful for your study of Yijing.
+</string>
+    <string name="music">Music</string>
+    <string name="new_text">write a new note</string>
+    <string name="note_operation">Please choose the following operation</string>
+    <string name="ok">OK</string>
+    <string name="out_put">Export</string>
+    <string name="please_click">Please click the spinner at the top of the switch to select the divination name.</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="privacy_policy_context">This application respects and protects the personal privacy of all users who use this service. In order to provide you with more accurate and personalized services, this application will use and disclose your personal information in accordance with the provisions of this privacy policy. However, this application will handle this information with great caution. Unless otherwise specified in this privacy policy, this application will not disclose or provide such information to third parties without your prior permission. This application will update this privacy policy from time to time. When you agree to this application service use agreement, you shall be deemed to agree to all the contents of this privacy policy. This privacy policy is an integral part of this application service use agreement. 1. Scope of application (a) When you use this app, you may need to provide personal registration information required by the app; (b) When you use this application network service, this application automatically receives and records your device information, including but not limited to your IP address, browser type, language used, access date and time, software and hardware feature information, web page records you need, and other data; © This application obtains user personal data from business partners through legal channels. 2. Use of information (a) This app will not provide, sell, rent, share or trade your personal login information to any irrelevant third party. (b) This application also does not allow any third party to collect, edit, sell or disseminate your personal information free of charge by any means. If any user of this application platform engages in the above activities, once found, this application has the right to immediately terminate the service agreement with this user. © For the purpose of serving users, the application may provide you with information of interest by using your personal information, including but not limited to sending you product and service information, or sharing information with application partners so that they can send you information about their products and services (the latter requires your prior consent). 3. Information disclosure Under the following circumstances, this application will disclose your personal information in whole or in part according to your personal wishes or legal provisions: (a) We will not disclose to third parties without your prior consent; (b) In order to provide the products and services you require, you must share your personal information with a third party; © Disclose to a third party or administrative or judicial institution in accordance with the relevant provisions of the law or the requirements of the administrative or judicial institution; (d) If you violate relevant Chinese laws, regulations or this application service agreement or relevant rules, you need to disclose it to a third party; (e) If you are a qualified intellectual property complainant and have filed a complaint, you should disclose it to the respondent at the request of the respondent, so that both parties can deal with possible rights disputes; 4. Information storage and exchange This software will not upload your personal data to the server in any way. 5. Changes to this Privacy Policy (a) If we decide to change the privacy policy, we will publish these changes in this policy on the website and where we think it appropriate, so that you can understand how we collect and use your personal information, who can access your personal information, and under what circumstances we will disclose your personal information. (b) We reserve the right to modify this policy at any time, so please check it often. If there is a major change in this policy, we will inform you through this website.</string>
+    <string name="save">save</string>
+    <string name="screen_animation">Open screen animation duration</string>
+    <string name="search">Search</string>
+    <string name="sounds">Sounds</string>
+    <string name="suggestion">If you have comments or suggestions, please email to klaoye@163.com\n</string>
+    <string name="text_contents">Main contents</string>
+    <string name="thank_donate">Thank you for your donation. With you, we will get better.</string>
+    <string name="time_changed">" time changed to <tools id="string">%1s</tools>seconds"</string>
+    <string name="title">title</string>
+    <string name="use_type_face">Use built-in fonts</string>
+</resources>

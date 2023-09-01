@@ -1,0 +1,4 @@
+#Fri Sep 01 22:50:33 CST 2023
+base.0=F\:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

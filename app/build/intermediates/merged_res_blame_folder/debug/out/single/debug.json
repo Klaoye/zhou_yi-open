@@ -1,0 +1,410 @@
+[
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_gen.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\gen.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_kan.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\kan.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_qian.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\qian.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_qian.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\qian.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_kun.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\kun.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_gen.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\gen.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable_button_and_item.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable\\button_and_item.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\layout_universal_text_view.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\layout\\universal_text_view.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_qian.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\qian.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_li.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\li.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_kan.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\kan.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_li.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\li.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_qian.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\qian.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\layout_write_note_view.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\layout\\write_note_view.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable_wood.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable\\wood.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_note.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\layout\\activity_note.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_kun.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\kun.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_zhen.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\zhen.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\xml_provider_paths.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\xml\\provider_paths.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_qian.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\qian.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\raw_a1.gif.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\raw\\a1.gif"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_xun.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\xun.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_gen.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\gen.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_dui.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\dui.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_zhen.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\zhen.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_kan.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\kan.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_li.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\li.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\layout_gif_view.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\layout\\gif_view.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable_switch_thumb_white.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable\\switch_thumb_white.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_stat_name.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable-mdpi\\ic_stat_name.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_kun.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\kun.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_xun.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\xun.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_table.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\layout\\activity_table.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_qian.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\qian.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\layout_gua_item_8.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\layout\\gua_item_8.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_kan.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\kan.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_xun.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\xun.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_dui.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\dui.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_settings.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\layout\\activity_settings.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\raw_book.mp3.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\raw\\book.mp3"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_ic_stat_name.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable-xxhdpi\\ic_stat_name.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_dui.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\dui.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable_a2.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable\\a2.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable_banboo2.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable\\banboo2.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_dui.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\dui.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\raw_water.mp3.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\raw\\water.mp3"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_zhen.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\zhen.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_zhen.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\zhen.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_kan.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\kan.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_zhen.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\zhen.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_kun.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\kun.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\raw_how_to_use.gif.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\raw\\how_to_use.gif"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_zhen.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\zhen.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable_switch_thumb_black.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable\\switch_thumb_black.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_xun.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\xun.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_gen.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\gen.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_li.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\li.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_dui.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\dui.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_dui.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\dui.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable_company.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable\\company.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_li.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\li.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_xun.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\xun.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_li.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\li.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_calendar.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\layout\\activity_calendar.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_kan.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\kan.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_zhen.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\zhen.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_kun.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\kun.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_li.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\li.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_dui.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\dui.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_stat_name.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable-xhdpi\\ic_stat_name.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_gen.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\gen.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_xun.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\xun.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_gen.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\gen.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_kun.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\kun.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\raw_guqin2.mp3.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\raw\\guqin2.mp3"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_ic_stat_name.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_stat_name.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable_a1.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable\\a1.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_help.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\layout\\activity_help.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_kan.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\kan.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable_wood_alpha.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable\\wood_alpha.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_kun.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\kun.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_qian.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\qian.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_ic_stat_name.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable-hdpi\\ic_stat_name.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_xun.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\xun.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_gen.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\gen.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\layout_gua_item_64.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\layout\\gua_item_64.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\raw_guqin.mp3.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\raw\\guqin.mp3"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\zhou_yi-open\\app\\build\\intermediates\\merged_res\\debug\\drawable_button_search.xml.flat",
+        "source": "F:\\AndroidProjects\\zhou_yi-open\\app\\src\\main\\res\\drawable\\button_search.xml"
+    }
+]

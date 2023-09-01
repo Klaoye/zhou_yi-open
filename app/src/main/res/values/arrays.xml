@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="gua_min">
+    <string-array name="gua_8">
         <item>乾</item>
         <item>兑</item>
         <item>离</item>
@@ -11,7 +11,7 @@
         <item>坤</item>
     </string-array>
 
-    <string-array name="gua_max">
+    <string-array name="gua_64">
         <item>乾</item>
         <item>履</item>
         <item>同人</item>
@@ -91,7 +91,48 @@
         <item>帮助</item>
         <item>设置</item>
         <item>笔记</item>
+        <item>黄历</item>
     </string-array>
+    <string-array name="table_menu_drawable">
+        <item>@drawable/qian</item>
+        <item>@drawable/dui</item>
+        <item>@drawable/li</item>
+        <item>@drawable/zhen</item>
+        <item>@drawable/xun</item>
+        <item>@drawable/kan</item>
+        <item>@drawable/gen</item>
+        <item>@drawable/kun</item>
+    </string-array>
+
+    <string-array name="tian_gan">
+        <item>甲</item>
+        <item>乙</item>
+        <item>丙</item>
+        <item>丁</item>
+        <item>戊</item>
+        <item>己</item>
+        <item>庚</item>
+        <item>辛</item>
+        <item>壬</item>
+        <item>癸</item>
+    </string-array>
+
+    <string-array name="di_zhi">
+        <item>子</item>
+        <item>丑</item>
+        <item>寅</item>
+        <item>卯</item>
+        <item>辰</item>
+        <item>巳</item>
+        <item>午</item>
+        <item>未</item>
+        <item>申</item>
+        <item>酉</item>
+        <item>戌</item>
+        <item>亥</item>
+
+    </string-array>
+
     <string-array name="help_array">
         <item>如何浅读《周易》</item>
         <item>如何使用本产品</item>

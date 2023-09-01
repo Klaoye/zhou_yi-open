@@ -6,6 +6,15 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:itemBackground">@drawable/button_and_item</item>
+        <item name="itemBackground">@drawable/button_and_item</item>
+        <item name="actionBarStyle">@style/global_action_bar</item>
+        <item name="android:actionBarStyle">@style/global_action_bar</item>
     </style>
 
+    <style name="global_action_bar" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="android:background">@drawable/button_and_item</item>
+        <item name="background">@drawable/button_and_item</item>
+
+    </style>
 </resources>
